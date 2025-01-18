@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #010180;
+  --secondary: #9a9afe;
+  --tertiary: #ebebeb;
+  --dark-primary: #01014d;
+  --text: #000000;
+  --success: #00ff00;
+  --danger: #ff0000;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  color: var(--text);
+}
+
+/* Text */
+.text-default {
+  color: var(--text);
+}
+.text-primary {
+  color: var(--primary);
+}
+
+.text-dark-primary {
+  color: var(--dark-primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+.text-tertiary {
+  color: var(--tertiary);
+}
+.text-success {
+  color: var(--success);
+}
+.text-danger {
+  color: var(--danger);
+}
+
+/* Background */
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-dark-primary {
+  background-color: var(--dark-primary);
+}
+
+.bg-dark-primary {
+  color: var(--dark-primary);
+}
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.bg-tertiary {
+  background-color: var(--tertiary);
+}
+
+.bg-success {
+  background-color: var(--success);
+}
+.bg-danger {
+  background-color: var(--danger);
+}
+
+/* Border */
+.border-primary {
+  border-color: var(--primary);
+}
+.border-dark-primary {
+  border-color: var(--dark-primary);
+}
+
+.border-text {
+  border-color: var(--text);
+}
+.border-secondary {
+  border-color: var(--secondary);
+}
+.border-tertiary {
+  border-color: var(--tertiary);
+}
+.border-success {
+  border-color: var(--success);
+}
+.border-danger {
+  border-color: var(--danger);
+}
+
+/* Fill */
+.fill-primary {
+  fill: var(--primary);
+}
+
+.fill-text {
+  fill: var(--text);
+}
+
+.fill-dark-primary {
+  fill: var(--dark-primary);
+}
+.fill-secondary {
+  fill: var(--secondary);
+}
+.fill-tertiary {
+  fill: var(--tertiary);
+}
+
+.fill-success {
+  fill: var(--success);
+}
+.fill-danger {
+  fill: var(--danger);
+}
+
+/* Hover Text */
+.hover\:text-primary:hover {
+  color: var(--primary);
+}
+.hover\:text-dark-primary:hover {
+  background-color: var(--dark-primary);
+}
+
+.hover\:text-secondary:hover {
+  color: var(--secondary);
+}
+.hover\:text-tertiary:hover {
+  color: var(--tertiary);
+}
+
+.hover\:text-success:hover {
+  color: var(--success);
+}
+.hover\:text-danger:hover {
+  color: var(--danger);
+}
+
+.hover\:text-default:hover {
+  color: var(--text);
+}
+
+/* Hover Background */
+
+.hover\:bg-primary:hover {
+  background-color: var(--primary);
+}
+.hover\:bg-dark-primary:hover {
+  background-color: var(--dark-primary);
+}
+
+.hover\:bg-secondary:hover {
+  background-color: var(--secondary);
+}
+.hover\:bg-tertiary:hover {
+  background-color: var(--tertiary);
+}
+
+.hover\:bg-success:hover {
+  background-color: var(--success);
+}
+.hover\:bg-danger:hover {
+  background-color: var(--danger);
+}
+
+/* Hover Border */
+.hover\:border-primary:hover {
+  border-color: var(--primary);
+}
+.hover\:border-dark-primary:hover {
+  border-color: var(--dark-primary);
+}
+.hover\:border-secondary:hover {
+  border-color: var(--secondary);
+}
+.hover\:border-tertiary:hover {
+  border-color: var(--tertiary);
+}
+
+.hover\:border-success:hover {
+  border-color: var(--success);
+}
+.hover\:border-danger:hover {
+  border-color: var(--danger);
+}
+
+/* Focus   */
+
+.focus\:primary:focus {
+  border-color: var(--primary);
+}
+.focus\:dark-primary:focus {
+  border-color: var(--dark-primary);
+}
+.focus\:secondary:focus {
+  border-color: var(--secondary);
+}
+.focus\:tertiary:focus {
+  border-color: var(--tertiary);
+}
+
+.focus\:success:focus {
+  border-color: var(--success);
+}
+.focus\:danger:focus {
+  border-color: var(--danger);
+}
