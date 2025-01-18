@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <div>Format Project Frontent in React</div>
+      <div class="font-bold">Format Project Frontent in React</div>
     </>
   );
 }
