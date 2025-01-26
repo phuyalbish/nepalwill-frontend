@@ -34,29 +34,29 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="relative bg-background flex justify-between items-center px-[2.5rem] py-[1rem]">
+            <nav style={{backdropFilter: "blur(8px)", boxShadow: "0 4px 6px rgba(153, 242, 200, 0.4)"}} className="relative md:sticky top-0 bg-background/70 border-primary flex justify-between items-center px-[2.5rem] py-[1rem]">
                 <div className="">
                     <h1 className="text-3xl">NepalWill</h1>
                 </div>
 
                 <div className={navMenuClassName}>
-                    <ul className="flex flex-col md:flex-row text-center shadow md:shadow-none absolute md:static left-0 bottom-0 translate-y-full md:translate-y-0 w-full bg-background">
-                        <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">
+                    <ul className="flex flex-col md:flex-row text-center shadow md:shadow-none absolute md:static left-0 bottom-0 translate-y-full md:translate-y-0 w-full ">
+                        <li className="cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 px-[1rem] py-[0.5rem]">
                             Home
                         </li>
-                        <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">
+                        <li className="cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 px-[1rem] py-[0.5rem]">
                             About
                         </li>
-                        <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">
+                        <li className="cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 px-[1rem] py-[0.5rem]">
                             Gallery
                         </li>
-                        <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">
+                        <li className="cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 px-[1rem] py-[0.5rem]">
                             Our Programs
                         </li>
-                        <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">
+                        <li className="cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 px-[1rem] py-[0.5rem]">
                             Blog
                         </li>
-                        <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">
+                        <li className="cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 px-[1rem] py-[0.5rem]">
                             Contact
                         </li>
                     </ul>
