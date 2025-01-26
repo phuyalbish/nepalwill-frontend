@@ -16,12 +16,36 @@ const Footer = () => {
 
                     <div className="">
                         <ul className="">
-                            <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">Home</li>
-                            <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">About</li>
-                            <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">Gallery</li>
-                            <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">Our Programs</li>
-                            <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">Blog</li>
-                            <li className="cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 px-[1rem] py-[0.5rem]">Contact</li>
+                            <div>
+                                <li className="inline-block cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 p-[0.5rem]">
+                                    Home
+                                </li>
+                            </div>
+                            <div>
+                                <li className="inline-block cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 p-[0.5rem]">
+                                    About
+                                </li>
+                            </div>
+                            <div>
+                                <li className="inline-block cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 p-[0.5rem]">
+                                    Gallery
+                                </li>
+                            </div>
+                            <div>
+                                <li className="inline-block cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 p-[0.5rem]">
+                                    Our Programs
+                                </li>
+                            </div>
+                            <div>
+                                <li className="inline-block cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 p-[0.5rem]">
+                                    Blog
+                                </li>
+                            </div>
+                            <div>
+                                <li className="inline-block cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 p-[0.5rem]">
+                                    Contact
+                                </li>
+                            </div>
                         </ul>
                     </div>
                     
