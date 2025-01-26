@@ -13,15 +13,17 @@
   --success: #00ff00;
   --danger: #ff0000;
 }
-
+* {
+  font-family: "Rethink Sans", serif;
+}
 body {
   font-family: "Rethink Sans", serif;
   color: var(--text);
 }
 .heading-font {
   font-family: "Noto Serif", serif;
+  color: var(--text);
 }
-
 /* Text */
 .text-default {
   color: var(--text);

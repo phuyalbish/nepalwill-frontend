@@ -4,14 +4,13 @@ import { IoLocationOutline } from "react-icons/io5";
 import { IoTimeOutline } from "react-icons/io5";
 import SecondaryButton from "@/components/buttons/SecondaryButton.jsx";
 import MainButton from "@/components/buttons/MainButton.jsx";
-import logo from "@/assets/splashImg.png";
-function EventTile({ title, venue, timeEnd, timeStart }) {
+function EventTile({ logo, title, venue, timeEnd, timeStart }) {
   const handleClick = () => {
     alert("Button Clicked!");
   };
 
   return (
-    <div class="flex flex-col p-[1rem] bg-white md:w-[19rem] flex-grow md:flex-grow-0 rounded-md gap-2 shadow-sm hover:shadow-md">
+    <div className="flex flex-col p-[1rem] bg-white md:w-[19rem] flex-grow md:flex-grow-0 rounded-md gap-2 shadow-sm hover:shadow-md">
       <img src={logo} alt="" className=" h-[14rem] rounded-lg" />
       <div className="flex justify-between font-light gap-3">
         <div className="flex gap-2 items-center justify-center">
@@ -35,6 +34,7 @@ function EventTile({ title, venue, timeEnd, timeStart }) {
 }
 
 EventTile.propTypes = {
+  logo: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   venue: PropTypes.string.isRequired,
   timeStart: PropTypes.string.isRequired,
