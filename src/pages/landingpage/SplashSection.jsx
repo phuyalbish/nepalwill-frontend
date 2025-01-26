@@ -18,8 +18,8 @@ export default function SplashSection() {
   };
 
   return (
-    <div className="flex flex-col  w-full gap-16">
-      <div className="flex flex-col-reverse md:flex-row  h-[30rem] justify-between items-center gap-10">
+    <div className="flex flex-col w-full gap-20">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-10">
         <div className="flex flex-col gap-[3rem]">
           <div className="text-[50px] heading-font ">
             NepalWill{" "}
@@ -33,13 +33,17 @@ export default function SplashSection() {
             government studying students in the outskirts of Kathmandu valley.
           </div>
 
-          <div className="flex md:w-1/4 w-1/3 animate-slideUp">
+          <div className="flex w-[10rem] animate-slideUp">
             <MainButton text="Get Involved" onClick={handleClick} />
           </div>
         </div>
-        <img src={logo} alt="" className="h-full rounded-3xl" />
+        <img
+          src={logo}
+          alt=""
+          className="sm:w-auto w-full lg:h-[30rem]  md:h-[24rem] h-auto  rounded-3xl"
+        />
       </div>
-      <div className="flex gap-3 text-lg justify-center items-center animate-bounce ">
+      <div className="sm:flex gap-3 text-lg justify-center items-center animate-bounce hidden ">
         <MdOutlineMouse className="text-xl" />
         <p>Scroll to see more</p>
       </div>

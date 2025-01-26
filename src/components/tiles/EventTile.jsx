@@ -11,7 +11,7 @@ function EventTile({ title, venue, timeEnd, timeStart }) {
   };
 
   return (
-    <div class="flex flex-col p-[1rem] bg-white md:w-[20rem] flex-grow md:flex-grow-0 rounded-md gap-2">
+    <div class="flex flex-col p-[1rem] bg-white md:w-[19rem] flex-grow md:flex-grow-0 rounded-md gap-2 shadow-sm hover:shadow-md">
       <img src={logo} alt="" className=" h-[14rem] rounded-lg" />
       <div className="flex justify-between font-light gap-3">
         <div className="flex gap-2 items-center justify-center">
