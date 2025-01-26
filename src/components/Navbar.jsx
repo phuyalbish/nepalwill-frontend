@@ -17,24 +17,32 @@ const Navbar = () => {
 
     const handleResize = () => {
         if (window.innerWidth > 768) {
-            setShowNavbar(true); 
+            setShowNavbar(true);
         } else {
-            setShowNavbar(false); 
+            setShowNavbar(false);
         }
     };
 
     useEffect(() => {
-        handleResize(); 
+        handleResize();
         window.addEventListener("resize", handleResize);
 
         return () => {
-            window.removeEventListener("resize", handleResize); 
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
 
     return (
         <>
-            <nav style={{backdropFilter: "blur(8px)", boxShadow: "0 4px 6px rgba(153, 242, 200, 0.4)"}} className="relative md:sticky top-0 bg-background/70 border-primary flex justify-between items-center px-[2.5rem] py-[1rem]">
+            <nav
+                style={{
+                    bbackground: "rgba(255,255,255, 0.75)",
+                    backdropFilter: "blur(8px)",
+                    webkitBackdropFilter: "blur(8px)",
+                    boxShadow: "0 4px 6px rgba(153, 242, 200, 0.4)",
+                }}
+                className="z-50 relative md:sticky top-0 bg-background/70 border-primary flex justify-between items-center px-[2.5rem] py-[1rem]"
+            >
                 <div className="">
                     <h1 className="text-3xl">NepalWill</h1>
                 </div>
