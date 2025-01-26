@@ -1,12 +1,9 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import Router from "./router/Router.jsx";
 
 function App() {
   return (
     <>
-      <div class="font-bold">Format Project Frontent in React</div>
+      <Router />
     </>
   );
 }

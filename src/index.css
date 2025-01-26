@@ -15,8 +15,11 @@
 }
 
 body {
-  font-family: "Josefin Sans", serif;
+  font-family: "Rethink Sans", serif;
   color: var(--text);
+}
+.heading-font {
+  font-family: "Noto Serif", serif;
 }
 
 /* Text */
