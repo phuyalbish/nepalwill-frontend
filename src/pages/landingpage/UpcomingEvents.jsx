@@ -1,5 +1,6 @@
 import React from "react";
 import EventTile from "@/components/tiles/EventTile";
+import SectionHeadingTile from "@/components/tiles/SectionHeadingTile.jsx";
 export default function UpcomingEvents() {
   const events = [
     {
@@ -29,9 +30,7 @@ export default function UpcomingEvents() {
   ];
   return (
     <div className="flex flex-col justify-center gap-10">
-      <div className="sm:text-[3rem] text-[1.75rem] w-full text-center">
-        Upcoming Events of NepalWill
-      </div>
+      <SectionHeadingTile heading="Upcoming Events of NepalCan" />
       <div className="flex flex-wrap gap-4  justify-center flex-grow-0 animate-slideUpEvent">
         {events.map((event, index) => (
           <EventTile
