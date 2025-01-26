@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <>
             <footer className="flex flex-col gap-12 bg-background px-[2.5rem] pt-[8rem] pb-[1rem]">
-                <div className="flex justify-between items  ">
+                <div className="flex flex-col md:flex-row justify-between items gap-10  ">
                     <div className="flex flex-col gap-5">
                         <div className="flex flex-col gap-2">
                             <h1 className="text-5xl">NepalWill</h1>
