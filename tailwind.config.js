@@ -9,6 +9,11 @@ export default {
           "100%": { transform: "translateX(0)", opacity: 1 },
         },
 
+        marquee: {
+          "0%": { transform: "translateX(2.5%)" },
+          "50%": { transform: "translateX(-2.5%)" },
+          "100%": { transform: "translateX(2.5%)" },
+        },
         slideUpEvent: {
           "0%": { transform: "translateX(-400px)", opacity: 0.6 },
           "100%": { transform: "translateX(0)", opacity: 1 },
@@ -27,6 +32,8 @@ export default {
         },
       },
       animation: {
+        marquee1: "marquee 7.3s linear infinite",
+        marquee2: "marquee 5.9s linear infinite",
         slideUpEvent: "slideUpEvent 0.5s ease-in",
         slideUp: "slideUp 0.5s ease-in",
         smoothCarousel: "smoothCarousel 0.5s ease-in",

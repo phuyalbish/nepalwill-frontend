@@ -3,7 +3,8 @@ import SplashSection from "@/pages/landingpage/SplashSection";
 import UpcomingEvents from "@/pages/landingpage/UpcomingEvents";
 import WhyNepalCan from "@/pages/landingpage/WhyNepalCan";
 import CTASmall from "@/pages/landingpage/CTASmall";
-import SustainableVision from "../pages/landingpage/SustainableVision";
+import SustainableVision from "@/pages/landingpage/SustainableVision";
+import Testimonials from "@/pages/landingpage/Testimonials";
 export default function LandingPage() {
   return (
     <PageLayout>
@@ -15,6 +16,10 @@ export default function LandingPage() {
           <CTASmall />
         </div>
         <SustainableVision />
+
+        <div className="-mx-[2.5rem] -my-[1rem] w-screen">
+          <Testimonials />
+        </div>
       </div>
     </PageLayout>
   );
