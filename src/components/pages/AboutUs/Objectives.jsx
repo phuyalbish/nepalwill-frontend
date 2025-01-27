@@ -44,7 +44,7 @@ const Objectives = () => {
             <div className="text-center p-[1rem]">
                 <div className="flex flex-col gap mx-auto relative w-full">
                     <h1 className="text-5xl mb-16">Objectives of NepalCan</h1>
-                    <div className="flex gap-10 justify-center flex-wrap">
+                    <div className="flex flex-col md:flex-row gap-10 justify-center flex-wrap">
                         { objectivesUI }
                     </div>
                 </div>

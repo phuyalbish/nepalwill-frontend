@@ -1,10 +1,10 @@
 const Hero = () => {
     return (
         <>
-            <div className="h-[80vh]">
+            <div className="">
                 <h1 className="text-center text-5xl mt-5 mb-16">About Us</h1>
-                <div className="flex items-center gap-20 justify-center">
-                    <p className="w-1/2">
+                <div className="flex flex-col md:flex-row items-center gap-20 justify-center">
+                    <p className="md:w-1/2">
                         <strong className="text-3xl">NepalCan</strong> is a non-governmental organization dedicated to
                         uplifting primary school children in Nepal by providing
                         essential educational resources and opportunities.
@@ -25,16 +25,16 @@ const Hero = () => {
                         together, we can create a brighter future for Nepal’s
                         children.
                     </p>
-                    <img style={{ width: "40%" }} src="/image2.png" alt="" />
+                    <img className="w-full md:w-[40%]" src="/image2.png" alt="" />
                 </div>
             </div>
 
             <div>
                 <h1 className="text-center text-5xl mb-16">Why NepalWill?</h1>
-                <div className="flex gap-28 items-center justify-center">
-                    <img style={{ width: "40%" }} src="/image1.png" alt="" />
+                <div className="flex flex-col md:flex-row gap-28 items-center justify-center">
+                    <img className="w-full md:w-[40%]" src="/image1.png" alt="" />
                     <ul
-                        className="flex flex-col gap-7 w-1/3"
+                        className="flex flex-col gap-7 w-full md:w-1/3"
                         style={{ listStyleType: "url('')" }}
                     >
                         <li className="flex gap-[0.8rem]">
@@ -65,7 +65,7 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="bg-accent text-center px-[13rem] py-[1.5rem]">
+            <div className="bg-accent text-center px-[5rem] md:px-[13rem] py-[1.5rem]">
                 <div className="flex flex-col gap-5  relative ">
                     <h1 className="text-5xl">Vision</h1>
                     <p className="text-center">
