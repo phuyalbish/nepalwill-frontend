@@ -16,36 +16,37 @@ const Navbar = () => {
     block: showNavbar,
   });
 
-  const handleResize = () => {
-    if (window.innerWidth > 768) {
-      setShowNavbar(true);
-    } else {
-      setShowNavbar(false);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
+    const handleResize = () => {
+        if (window.innerWidth > 768) {
+            setShowNavbar(true);
+        } else {
+            setShowNavbar(false);
+        }
     };
-  }, []);
 
-  return (
-    <>
-      <nav
-        style={{
-          background: "rgba(255,255,255, 0.75)",
-          backdropFilter: "blur(8px)",
-          boxShadow: "0 4px 6px rgba(153, 242, 200, 0.4)",
-        }}
-        className="z-50 relative md:sticky top-0 bg-background border-primary flex justify-between items-center px-[2.5rem] py-[1rem]"
-      >
-        <div className="">
-          <h1 className="text-3xl">NepalWill</h1>
-        </div>
+    useEffect(() => {
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    return (
+        <>
+            <nav
+                style={{
+                    bbackground: "rgba(255,255,255, 0.75)",
+                    backdropFilter: "blur(8px)",
+                    webkitBackdropFilter: "blur(8px)",
+                    boxShadow: "0 4px 6px rgba(153, 242, 200, 0.4)",
+                }}
+                className="z-50 relative md:sticky top-0 bg-background/70 border-primary flex justify-between items-center px-[2.5rem] py-[1rem]"
+            >
+                <div className="">
+                    <h1 className="text-3xl">NepalWill</h1>
+                </div>
 
         <div className={navMenuClassName}>
           <ul className="flex flex-col md:flex-row text-center select-none items-center sm:pb-0 pb-10  sm:bg-transparent bg-background shadow md:shadow-none absolute md:static left-0 bottom-0 translate-y-full md:translate-y-0 w-full ">
