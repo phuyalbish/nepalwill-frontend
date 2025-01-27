@@ -6,7 +6,7 @@ const PageLayout = ({ children }) => {
         <>
             <div >
                 <Navbar />
-                <div className="px-[2.5rem] py-[1rem]">
+                <div className="px-[2.5rem] py-[1rem] bg-background flex flex-col gap-32">
                     { children }
                 </div>
                 <Footer className="px-[2.5rem] py-[1rem]" />
