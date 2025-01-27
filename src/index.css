@@ -6,19 +6,24 @@
   --primary: #99f2c8;
   --secondary: #89a2e5;
   --accent: #735bda;
-  --dark-primary: #8cffc9;
+  --dark-primary: #3ce293;
   --background: #f6fdfa;
   --dark-background: #e7f2ed;
   --text: #000000;
   --success: #00ff00;
   --danger: #ff0000;
 }
-
+* {
+  font-family: "Rethink Sans", serif;
+}
 body {
-  font-family: "Josefin Sans", serif;
+  font-family: "Rethink Sans", serif;
   color: var(--text);
 }
-
+.heading-font {
+  font-family: "Noto Serif", serif;
+  color: var(--text);
+}
 /* Text */
 .text-default {
   color: var(--text);
