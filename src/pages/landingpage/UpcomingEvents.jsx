@@ -37,7 +37,7 @@ export default function UpcomingEvents() {
     },
   ];
   return (
-    <div className="flex flex-col justify-center gap-10">
+    <div className="flex sm:w-[90vw]  m-auto flex-col justify-center gap-10">
       <SectionHeadingTile heading="Upcoming Events of NepalCan" />
       <div className="flex flex-wrap gap-4  justify-center flex-grow-0 animate-slideUpEvent">
         {events.map((event, index) => (

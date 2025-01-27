@@ -11,7 +11,7 @@ function WhyNepalCan() {
     { title: "Empowering Students for Global Success" },
   ];
   return (
-    <div className="flex flex-col justify-center items-center gap-10">
+    <div className="flex sm:w-[90vw]  m-auto flex-col justify-center items-center gap-10">
       <SectionHeadingTile heading="Why NepalWill?" />
       <div className="flex flex-col md:flex-row justify-evenly items-center gap-10 w-2/3">
         <img
