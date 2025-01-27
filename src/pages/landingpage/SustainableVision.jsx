@@ -17,7 +17,7 @@ export default function SustainableVision() {
         </div>
 
         <div className="flex flex-col gap-10 items-start">
-          <img src={SDImage1} alt="" className=" w-48 h-48 select-none" />
+          <img src={SDImage2} alt="" className=" w-48 h-48 select-none" />
           <div className="text-base">
             <span className="font-bold"> Skills Development: </span> Providing
             training programs tailored to the needs of the local job market,
