@@ -44,7 +44,7 @@ export default function SplashSection() {
             </span>
           </div>
           <div className="text-base text-default opacity-50">
-            A foundation initiated to provide English education to the students
+            A foundation initiated to provide all kind of skills to the students
             to close the gap between the privileged students and the government
             studying students in the outskirts of Kathmandu valley.
           </div>

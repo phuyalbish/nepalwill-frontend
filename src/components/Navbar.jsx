@@ -48,7 +48,7 @@ const Navbar = () => {
         </div>
 
         <div className={navMenuClassName}>
-          <ul className="flex flex-col md:flex-row text-center items-center sm:pb-0 pb-10  sm:bg-transparent bg-background shadow md:shadow-none absolute md:static left-0 bottom-0 translate-y-full md:translate-y-0 w-full ">
+          <ul className="flex flex-col md:flex-row text-center select-none items-center sm:pb-0 pb-10  sm:bg-transparent bg-background shadow md:shadow-none absolute md:static left-0 bottom-0 translate-y-full md:translate-y-0 w-full ">
             <li className="cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 px-[1rem] py-[0.5rem]">
               About
             </li>
