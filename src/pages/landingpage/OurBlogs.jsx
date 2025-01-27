@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import image1 from "@/assets/splashImg1.png";
 import image2 from "@/assets/splashImg2.png";
 import image3 from "@/assets/splashImg3.png";
 import image4 from "@/assets/splashImg4.png";
 import BlogTile from "@/components/tiles/BlogTile";
 import SectionHeadingTile from "@/components/tiles/SectionHeadingTile.jsx";
+
 export default function OurBlogs() {
-  const events = [
+  const blogs = [
     {
       image: image1,
-      title: "English teaching using google meet by Judy - Iran",
+      title: "English teaching using Google Meet by Judy - Iran",
       name: "Ram Bahadur",
       date: "8:00 AM",
       category: "Teaching",
     },
     {
       image: image2,
-      title: "Nepal in the eye of 11years old Kid.",
+      title: "Nepal in the eye of 11 years old Kid.",
       name: "Ram Bahadur",
       date: "10:00 AM",
       category: "Insights",
@@ -36,18 +37,44 @@ export default function OurBlogs() {
       category: "Knowledge",
     },
   ];
+
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex sm:w-[90vw]  m-auto flex-col justify-center gap-10">
+    <div className="flex sm:w-[90vw] m-auto flex-col justify-center gap-10">
       <SectionHeadingTile heading="Our Blogs" />
-      <div className="flex flex-wrap gap-4  justify-center flex-grow-0">
-        {events.map((event, index) => (
+      <div
+        ref={containerRef}
+        className={`flex flex-wrap gap-4 justify-center transition-all duration-500 ${
+          isVisible ? "animate-slideUpEvent opacity-100" : "opacity-0"
+        }`}
+      >
+        {blogs.map((blog, index) => (
           <BlogTile
             key={index}
-            image={event.image}
-            title={event.title}
-            name={event.name}
-            date={event.date}
-            category={event.category}
+            image={blog.image}
+            title={blog.title}
+            name={blog.name}
+            date={blog.date}
+            category={blog.category}
           />
         ))}
       </div>

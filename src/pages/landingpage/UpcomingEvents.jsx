@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import logo1 from "@/assets/splashImg1.png";
 import logo2 from "@/assets/splashImg2.png";
 import logo3 from "@/assets/splashImg3.png";
 import logo4 from "@/assets/splashImg4.png";
 import EventTile from "@/components/tiles/EventTile";
 import SectionHeadingTile from "@/components/tiles/SectionHeadingTile.jsx";
+
 export default function UpcomingEvents() {
   const events = [
     {
@@ -36,10 +37,36 @@ export default function UpcomingEvents() {
       timeEnd: "11:00 AM",
     },
   ];
+
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex sm:w-[90vw]  m-auto flex-col justify-center gap-10">
+    <div className="flex sm:w-[90vw] m-auto flex-col justify-center gap-10">
       <SectionHeadingTile heading="Upcoming Events of NepalCan" />
-      <div className="flex flex-wrap gap-4  justify-center flex-grow-0 animate-slideUpEvent">
+      <div
+        ref={containerRef}
+        className={`flex flex-wrap gap-4 justify-center flex-grow-0 transition-all duration-500 ${
+          isVisible ? "animate-slideUpEvent opacity-100" : "opacity-0"
+        }`}
+      >
         {events.map((event, index) => (
           <EventTile
             key={index}
