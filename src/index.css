@@ -136,7 +136,7 @@ body {
   color: var(--primary);
 }
 .hover\:text-dark-primary:hover {
-  background-color: var(--dark-primary);
+  color: var(--dark-primary);
 }
 
 .hover\:text-secondary:hover {

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { CiCalendarDate, CiUser } from "react-icons/ci";
 function BlogTile({ image, title, name, date, category }) {
   const handleClick = () => {
-    alert("Button Clicked!");
+    alert("We are Still Working on it!");
   };
 
   return (

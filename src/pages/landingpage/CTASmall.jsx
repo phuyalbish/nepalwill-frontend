@@ -22,7 +22,13 @@ function CTASmall() {
         <div className="text-[2.35rem] font-medium">
           Empower students to succeed in a global environment
         </div>
-        <div className="text-default font-medium">Be a Leader</div>
+        <div className="text-default font-medium">
+          NepalWill equips students with the skills, knowledge, and confidence
+          to compete and excel on a global stage. Through cutting-edge
+          education, digital empowerment, and leadership development, we ensure
+          that Nepal’s youth are not just prepared for the future—they are ready
+          to lead it.
+        </div>
 
         <div className="flex w-[10rem] animate-slideUp">
           <MainButton text="Get Involved" />

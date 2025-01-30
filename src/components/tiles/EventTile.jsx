@@ -6,7 +6,7 @@ import SecondaryButton from "@/components/buttons/SecondaryButton.jsx";
 import MainButton from "@/components/buttons/MainButton.jsx";
 function EventTile({ logo, title, venue, timeEnd, timeStart }) {
   const handleClick = () => {
-    alert("Button Clicked!");
+    alert("We are Still Working on it!");
   };
 
   return (

@@ -6,48 +6,48 @@ import image4 from "@/assets/splashImg4.png";
 import TestimonialTile from "@/components/tiles/TestimonialTile.jsx";
 import SectionHeadingTile from "@/components/tiles/SectionHeadingTile.jsx";
 export default function Testimonials() {
-  const events1 = [
+  const testimonials = [
     {
       image: image1,
-      name: "Poem Competition",
+      name: "Sujan Sharma",
       description:
         "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
     {
       image: image2,
-      name: "Art Workshop",
+      name: "Priya Koirala",
       description:
         "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
     {
       image: image3,
-      name: "Music Concert",
+      name: "Aarav Thapa",
       description:
         "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
     {
       image: image4,
-      name: "Poem Competition",
+      name: "Anjali Rai",
       description:
         "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team. alsd asdm kas",
     },
   ];
-  const events2 = [
+  const testimonials2 = [
     {
       image: image1,
-      name: "Poem Competition",
+      name: "Sujan Sharma",
       description:
         "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
     {
       image: image2,
-      name: "Art Workshop",
+      name: "Priya Koirala",
       description:
         "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
     {
       image: image3,
-      name: "Music Concert",
+      name: "Aarav Thapa",
       description:
         "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
@@ -56,7 +56,7 @@ export default function Testimonials() {
     <div className="flex  m-auto flex-col justify-center gap-5">
       <SectionHeadingTile heading="What People Say about us!" />
       <div className="flex gap-4  justify-center flex-grow-0 animate-marquee1 w-screen">
-        {events1.map((event, index) => (
+        {testimonials.map((event, index) => (
           <TestimonialTile
             key={index}
             image={event.image}
@@ -67,7 +67,7 @@ export default function Testimonials() {
       </div>
 
       <div className="flex gap-4  justify-center flex-grow-0 animate-marquee2 w-screen">
-        {events2.map((event, index) => (
+        {testimonials2.map((event, index) => (
           <TestimonialTile
             key={index}
             image={event.image}

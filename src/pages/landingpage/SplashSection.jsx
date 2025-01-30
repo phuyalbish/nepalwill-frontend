@@ -21,7 +21,7 @@ export default function SplashSection() {
 
     const logoIntervalId = setInterval(() => {
       setCurrentLogo((prevLogo) => (prevLogo + 1) % logos.length);
-    }, 5000);
+    }, 2000);
 
     return () => {
       clearInterval(wordIntervalId);
@@ -30,7 +30,7 @@ export default function SplashSection() {
   }, [words.length, logos.length]);
 
   const handleClick = () => {
-    alert("Button Clicked!");
+    alert("We are Still Working on it!");
   };
 
   return (
