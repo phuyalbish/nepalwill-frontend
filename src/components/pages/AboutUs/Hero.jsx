@@ -1,6 +1,7 @@
 import Quote from "@/assets/Quote.png";
 import WhyNepalWill from "@/components/pages/landingpage/WhyNepalWill";
 import SectionHeadingTile from "@/components/tiles/SectionHeadingTile";
+import logo1 from "@/assets/splashImg2.png";
 const Hero = () => {
   return (
     <div className="flex flex-col gap-28">
@@ -25,7 +26,7 @@ const Hero = () => {
             their full potential. NepalWill—because together, we can create a
             brighter future for Nepal’s children.
           </p>
-          <img className="w-full md:w-[40%]" src="/image2.png" alt="" />
+          <img className="w-full md:w-[40%]" src={logo1} alt="" />
         </div>
       </div>
       <WhyNepalWill />
