@@ -2,7 +2,7 @@ import React from "react";
 import logo from "@/assets/splashImg1.png";
 import { MdDone } from "react-icons/md";
 import SectionHeadingTile from "@/components/tiles/SectionHeadingTile.jsx";
-function WhyNepalCan() {
+function WhyNepalWill() {
   const whys = [
     { title: "Bridging Educational Gaps" },
     { title: "Focus on Primary Education" },
@@ -19,17 +19,20 @@ function WhyNepalCan() {
           alt=""
           className="sm:w-auto w-full lg:h-[20rem]  md:h-[20rem] h-auto  rounded-3xl"
         />
-        <div className="flex flex-col gap-7 text-base text-default ">
+        <ul
+          className="flex flex-col gap-7 w-full"
+          style={{ listStyleType: "url('')" }}
+        >
           {whys.map((why, index) => (
-            <div key={index} className="flex gap-5 items-center">
-              <MdDone className="text-accent" />
-              <p>{why.title}</p>
-            </div>
+            <li className="flex gap-[0.8rem]">
+              <img src="/check_circle.svg" alt="" />
+              <span>{why.title}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );
 }
 
-export default WhyNepalCan;
+export default WhyNepalWill;

@@ -1,14 +1,14 @@
 import PageLayout from "@/components/layouts/PageLayout";
-import SplashSection from "@/pages/landingpage/SplashSection";
-import UpcomingEvents from "@/pages/landingpage/UpcomingEvents";
-import WhyNepalCan from "@/pages/landingpage/WhyNepalCan";
-import CTASmall from "@/pages/landingpage/CTASmall";
-import SustainableVision from "@/pages/landingpage/SustainableVision";
-import Testimonials from "@/pages/landingpage/Testimonials";
-import OurBlogs from "@/pages/landingpage/OurBlogs";
-import OurSupport from "@/pages/landingpage/OurSupport";
-import CTABig from "@/pages/landingpage/CTABig";
-import FAQ from "@/pages/landingpage/FAQ";
+import SplashSection from "@/components/pages/landingpage/SplashSection";
+import UpcomingEvents from "@/components/pages/landingpage/UpcomingEvents";
+import WhyNepalWill from "@/components/pages/landingpage/WhyNepalWill";
+import CTASmall from "@/components/pages/landingpage/CTASmall";
+import SustainableVision from "@/components/pages/landingpage/SustainableVision";
+import Testimonials from "@/components/pages/landingpage/Testimonials";
+import OurBlogs from "@/components/pages/landingpage/OurBlogs";
+import OurSupport from "@/components/pages/landingpage/OurSupport";
+import CTABig from "@/components/pages/landingpage/CTABig";
+import FAQ from "@/components/pages/landingpage/FAQ";
 
 export default function LandingPage() {
   return (
@@ -16,7 +16,7 @@ export default function LandingPage() {
       <div className="flex flex-col  gap-24 md:mt-20">
         <SplashSection />
         <UpcomingEvents />
-        <WhyNepalCan />
+        <WhyNepalWill />
         <div className="-mx-[2.5rem] -my-[1rem]">
           <CTASmall />
         </div>

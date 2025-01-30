@@ -6,19 +6,23 @@ export default function OurSupport() {
   const faqs = [
     {
       question: "What is NepalWill?",
-      answer: "NCCS College",
+      answer:
+        "NepalWill is an initiative aimed at empowering individuals and communities in Nepal through education, skill development, and volunteerism. It provides various programs that help improve the lives of people in need.",
     },
     {
-      question: "When did NepalWill started working?",
-      answer: "ABC Academy",
+      question: "When did NepalWill start working?",
+      answer:
+        "NepalWill started its journey in 2015, with a vision to bring positive change to society by supporting education, health, and sustainable development initiatives across Nepal.",
     },
     {
-      question: "How can i volunteer in NepalCan?",
-      answer: "XYZ Hall",
+      question: "How can I volunteer in NepalWill?",
+      answer:
+        "You can volunteer with NepalWill by visiting our website and filling out a volunteer application form. Alternatively, you can reach out to us via email or social media to learn about upcoming volunteer opportunities.",
     },
     {
-      question: "Where is NepalWill office?",
-      answer: "NCCS College",
+      question: "Where is NepalWill's office?",
+      answer:
+        "NepalWill’s office is located in Kathmandu, Nepal. Our central office is the heart of our operations, where we coordinate various community development projects and partnerships.",
     },
   ];
 
@@ -47,9 +51,7 @@ export default function OurSupport() {
               </div>
             </div>
             {openIndex === index && (
-              <div className="mt-2 text-gray-700 animate-slideUp">
-                {faq.answer}
-              </div>
+              <div className="mt-2 text-gray-700">{faq.answer}</div>
             )}
           </div>
         ))}

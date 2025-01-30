@@ -11,25 +11,25 @@ export default function Testimonials() {
       image: image1,
       name: "Sujan Sharma",
       description:
-        "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
+        "NepalWill has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
     {
       image: image2,
       name: "Priya Koirala",
       description:
-        "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
+        "NepalWill has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
     {
       image: image3,
       name: "Aarav Thapa",
       description:
-        "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
+        "NepalWill has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
     {
       image: image4,
       name: "Anjali Rai",
       description:
-        "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team. alsd asdm kas",
+        "NepalWill has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team. alsd asdm kas",
     },
   ];
   const testimonials2 = [
@@ -37,19 +37,19 @@ export default function Testimonials() {
       image: image1,
       name: "Sujan Sharma",
       description:
-        "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
+        "NepalWill has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
     {
       image: image2,
       name: "Priya Koirala",
       description:
-        "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
+        "NepalWill has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
     {
       image: image3,
       name: "Aarav Thapa",
       description:
-        "NepalCan has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
+        "NepalWill has been constantly working to make the students better in academics and the extra curricular activities. More Power to EFN team.",
     },
   ];
   return (
