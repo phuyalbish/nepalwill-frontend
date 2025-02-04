@@ -9,7 +9,7 @@ const Hero = () => {
         <SectionHeadingTile heading="About Us" />
         <div className="flex flex-col md:flex-row items-center gap-20 justify-center">
           <p className="md:w-1/2">
-            <strong className="text-3xl">NepalWill</strong> is a
+            <strong className="text-3xl ">NepalWill</strong> is a
             non-governmental organization dedicated to uplifting primary school
             children in Nepal by providing essential educational resources and
             opportunities. Believing in the transformative power of education,

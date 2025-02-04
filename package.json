@@ -8,9 +8,13 @@
     "serve": "serve -s dist -l tcp://0.0.0.0:5174"
   },
   "dependencies": {
+    "@mantine/carousel": "^7.16.2",
+    "@mantine/core": "^7.16.2",
+    "@mantine/hooks": "^7.16.2",
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.5.2",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

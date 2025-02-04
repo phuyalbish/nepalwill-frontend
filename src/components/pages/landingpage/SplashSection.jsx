@@ -34,8 +34,8 @@ export default function SplashSection() {
   };
 
   return (
-    <div className="flex sm:w-[90vw]  m-auto flex-col sm:gap-20 select-none">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+    <div className="flex sm:w-[90vw]  m-auto flex-col justify-evenly sm:gap-20 select-none">
+      <div className="flex flex-col md:flex-row sm:justify-between items-center sm:h-auto h-[90vh] justify-evenly gap-10">
         <div className="flex flex-col gap-[1rem] sm:gap-[3rem]">
           <div className="text-[35px] sm:text-[50px] heading-font">
             NepalWill{" "}

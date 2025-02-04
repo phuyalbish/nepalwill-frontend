@@ -7,8 +7,13 @@ function BlogTile({ image, title, name, date, category }) {
   };
 
   return (
-    <div className="flex flex-col p-[1rem] bg-white md:w-[19rem] flex-grow md:flex-grow-0 rounded-md gap-2 shadow-sm hover:shadow-md">
-      <img src={image} alt="" className=" h-[14rem] rounded-lg" />
+    <div className="flex flex-col p-[1rem] bg-white md:w-[21rem] flex-grow md:flex-grow-0 rounded-md gap-2 shadow-sm hover:shadow-md">
+      <img
+        src={image}
+        alt=""
+        className=" h-[14rem] rounded-lg object-cover"
+        loading="lazy"
+      />
 
       <div className="text-sm font-semibold text-secondary">{category}</div>
       <div className="text-[1.3rem]">{title}</div>

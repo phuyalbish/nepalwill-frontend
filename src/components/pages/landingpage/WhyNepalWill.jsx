@@ -24,7 +24,7 @@ function WhyNepalWill() {
           style={{ listStyleType: "url('')" }}
         >
           {whys.map((why, index) => (
-            <li className="flex gap-[0.8rem] items-center">
+            <li className="flex gap-[0.8rem] items-center " key={index}>
               <img src="/check_circle.svg" alt="" className="w-5 h-5" />
               <span>{why.title}</span>
             </li>

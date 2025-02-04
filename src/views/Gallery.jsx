@@ -15,42 +15,51 @@ function Gallery() {
   const images = [
     {
       src: image2,
-      class: "wide"
+      class: "wide",
     },
     {
       src: image1,
-      class: "normal"
+      class: "normal",
     },
-    
+
     {
       src: image3,
-      class: "normal"
-    },
-    {
-      src: image4,
-      class: "wide"
+      class: "normal",
     },
     {
       src: image5,
-      class: "big"
+      class: "big",
     },
     {
-      src: image6,
-      class: "wide"
+      src: image4,
+      class: "wide",
+    },
+
+    {
+      src: image7,
+      class: "tall",
     },
     {
       src: image7,
-      class: "tall"
+      class: "normal",
     },
-  ]
+    {
+      src: image6,
+      class: "wide",
+    },
+  ];
   return (
     <PageLayout>
-      <div className="flex sm:w-[90vw]  m-auto flex-col justify-center items-center gap-10">
+      <div className="flex w-full   m-auto flex-col justify-center items-center gap-10">
         <SectionHeadingTile heading="Gallery" />
         <div className="gallery ">
           {images.map((img, index) => (
             <div key={index} className={img.class}>
-              <img src={img.src} alt={`Gallery Image ${index + 1}`} />
+              <img
+                src={img.src}
+                alt={`Gallery Image ${index + 1}`}
+                loading="lazy"
+              />
             </div>
           ))}
         </div>

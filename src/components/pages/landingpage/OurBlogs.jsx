@@ -5,6 +5,7 @@ import image3 from "@/assets/splashImg3.png";
 import image4 from "@/assets/splashImg4.png";
 import BlogTile from "@/components/tiles/BlogTile";
 import SectionHeadingTile from "@/components/tiles/SectionHeadingTile.jsx";
+import { Carousel } from "@mantine/carousel";
 
 export default function OurBlogs() {
   const blogs = [
@@ -59,11 +60,11 @@ export default function OurBlogs() {
   }, []);
 
   return (
-    <div className="flex sm:w-[90vw] m-auto flex-col justify-center gap-10">
+    <div className="flex  flex-col justify-center gap-10">
       <SectionHeadingTile heading="Our Blogs" />
       <div
         ref={containerRef}
-        className={`flex flex-wrap gap-4 justify-center transition-all duration-500 ${
+        className={`hidden sm:flex flex-wrap  justify-between transition-all duration-500 ${
           isVisible ? "md:animate-slideUpEvent opacity-100" : "md:opacity-0"
         }`}
       >
@@ -77,6 +78,23 @@ export default function OurBlogs() {
             category={blog.category}
           />
         ))}
+      </div>
+
+      <div className="sm:hidden block relative">
+        <Carousel withIndicators height={200}>
+          {blogs.map((blog, index) => (
+            <Carousel.Slide key={index}>
+              <BlogTile
+                key={index}
+                image={blog.image}
+                title={blog.title}
+                name={blog.name}
+                date={blog.date}
+                category={blog.category}
+              />
+            </Carousel.Slide>
+          ))}
+        </Carousel>
       </div>
     </div>
   );

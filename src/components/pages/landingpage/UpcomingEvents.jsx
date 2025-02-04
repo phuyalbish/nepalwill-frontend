@@ -5,7 +5,7 @@ import logo3 from "@/assets/splashImg3.png";
 import logo4 from "@/assets/splashImg4.png";
 import EventTile from "@/components/tiles/EventTile";
 import SectionHeadingTile from "@/components/tiles/SectionHeadingTile.jsx";
-
+import { Carousel } from "@mantine/carousel";
 export default function UpcomingEvents() {
   const events = [
     {
@@ -64,11 +64,12 @@ export default function UpcomingEvents() {
   }, []);
 
   return (
-    <div className="flex sm:w-[90vw] m-auto flex-col justify-center gap-10">
+    <div className="flex flex-col justify-center gap-10">
       <SectionHeadingTile heading="Upcoming Events of NepalWill" />
+
       <div
         ref={containerRef}
-        className={`flex flex-wrap gap-4 justify-center flex-grow-0 transition-all duration-500 ${
+        className={`sm:flex hidden flex-wrap gap-1 justify-between flex-grow-0 transition-all duration-500 ${
           isVisible ? "md:animate-slideUpEvent opacity-100" : "md:opacity-0"
         }`}
       >
@@ -82,6 +83,21 @@ export default function UpcomingEvents() {
             timeEnd={event.timeEnd}
           />
         ))}
+      </div>
+      <div className="sm:hidden block relative">
+        <Carousel withIndicators height={200}>
+          {events.map((event, index) => (
+            <Carousel.Slide key={index}>
+              <EventTile
+                logo={event.logo}
+                title={event.title}
+                venue={event.venue}
+                timeStart={event.timeStart}
+                timeEnd={event.timeEnd}
+              />
+            </Carousel.Slide>
+          ))}
+        </Carousel>
       </div>
     </div>
   );

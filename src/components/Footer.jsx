@@ -10,7 +10,7 @@ import { IconContext } from "react-icons";
 const Footer = () => {
   return (
     <>
-      <footer className="flex flex-col gap-12 bg-dark-background px-[2.5rem] pt-[8rem] pb-[1rem]">
+      <footer className="flex flex-col gap-12 bg-dark-background px-[2.5rem] pt-[8rem] pb-[1rem] mt-20">
         <div className="flex flex-col md:flex-row justify-between items gap-10  ">
           <div className="flex flex-col gap-5">
             <div className="flex flex-col gap-2">
@@ -85,7 +85,11 @@ const Footer = () => {
         <div className="text-center">
           <p className="text-basepnp">
             NepalWill 2024 © All right Reserved.{" "}
-            <a target="_blank" href="https://webodle.vercel.app/" class="font-semibold">
+            <a
+              target="_blank"
+              href="https://webodle.vercel.app/"
+              className="font-semibold"
+            >
               Designed by Webodle
             </a>
           </p>

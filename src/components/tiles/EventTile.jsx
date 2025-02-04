@@ -10,8 +10,13 @@ function EventTile({ logo, title, venue, timeEnd, timeStart }) {
   };
 
   return (
-    <div className="flex flex-col p-[1rem] bg-white md:w-[19rem] flex-grow md:flex-grow-0 rounded-md gap-2 shadow-sm hover:shadow-md">
-      <img src={logo} alt="" className=" h-[14rem] rounded-lg" />
+    <div className="flex flex-col p-[1rem] bg-white md:w-[21rem] flex-grow md:flex-grow-0 rounded-md gap-2 shadow-sm hover:shadow-md">
+      <img
+        src={logo}
+        alt=""
+        className=" h-[14rem] rounded-lg object-cover"
+        loading="lazy"
+      />
       <div className="flex justify-between font-light gap-3">
         <div className="flex gap-2 items-center justify-center">
           <IoLocationOutline />

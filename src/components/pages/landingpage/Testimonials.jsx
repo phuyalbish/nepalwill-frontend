@@ -66,7 +66,7 @@ export default function Testimonials() {
         ))}
       </div>
 
-      <div className="flex gap-4  flex-col sm:flex-row  justify-center flex-grow-0 sm:animate-marquee2 m-auto sm:w-screen w-[95vw]">
+      <div className="hidden gap-4 sm:flex  flex-col sm:flex-row  justify-center flex-grow-0 sm:animate-marquee2 m-auto sm:w-screen w-[95vw]">
         {testimonials2.map((event, index) => (
           <TestimonialTile
             key={index}
