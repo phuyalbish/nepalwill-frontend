@@ -85,7 +85,7 @@ const Footer = () => {
         <div className="text-center">
           <p className="text-basepnp">
             NepalWill 2024 © All right Reserved.{" "}
-            <a href="https://webodle.vercel.app/" class="font-semibold">
+            <a target="_blank" href="https://webodle.vercel.app/" class="font-semibold">
               Designed by Webodle
             </a>
           </p>
