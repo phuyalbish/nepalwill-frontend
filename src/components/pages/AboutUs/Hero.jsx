@@ -5,7 +5,7 @@ import logo1 from "@/assets/splashImg2.png";
 const Hero = () => {
   return (
     <div className="flex flex-col gap-28">
-      <div className="flex flex-col gap-5">
+      <div className="flex sm:w-[90vw]  m-auto flex-col justify-center items-center gap-10">
         <SectionHeadingTile heading="About Us" />
         <div className="flex flex-col md:flex-row items-center gap-20 justify-center">
           <p className="md:w-1/2">
@@ -31,7 +31,7 @@ const Hero = () => {
       </div>
       <WhyNepalWill />
 
-      <div className="bg-primary rounded-md text-center px-[5rem] md:px-[13rem] py-[1.5rem]">
+      <div className="bg-primary rounded-md text-center px-2 sm:px-[5rem] md:px-[13rem] py-[1.5rem]">
         <div className="flex flex-col gap-5  relative ">
           <SectionHeadingTile heading="Vision" />
           <p className="text-center">

@@ -56,9 +56,6 @@ const Footer = () => {
           </div>
 
           <div className=" flex flex-col gap-8">
-            <div>
-              <input style={{ display: "block", width: "100%" }} type="email" />
-            </div>
             <h2 className="text-2xl font-bold">Connect with Us:</h2>
             <div className="flex gap-8">
               <IconContext.Provider value={{ size: "1.7rem" }}>

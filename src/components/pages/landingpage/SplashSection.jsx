@@ -34,16 +34,16 @@ export default function SplashSection() {
   };
 
   return (
-    <div className="flex sm:w-[90vw]  m-auto flex-col gap-20 select-none">
+    <div className="flex sm:w-[90vw]  m-auto flex-col sm:gap-20 select-none">
       <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-        <div className="flex flex-col gap-[3rem]">
-          <div className="text-[50px] heading-font">
+        <div className="flex flex-col gap-[1rem] sm:gap-[3rem]">
+          <div className="text-[35px] sm:text-[50px] heading-font">
             NepalWill{" "}
             <span className="text-accent animate-slideUp">
               {words[currentWord]}
             </span>
           </div>
-          <div className="text-base text-default opacity-50">
+          <div className="test-sm sm:text-base text-default opacity-50">
             A foundation initiated to provide all kind of skills to the students
             to close the gap between the privileged students and the government
             studying students in the outskirts of Kathmandu valley.
@@ -55,12 +55,12 @@ export default function SplashSection() {
         </div>
         <div
           style={{ userDrag: "none" }}
-          className="flex relative flex-col gap-2   justify-center items-center w-[95vw] lg:h-[30rem] md:h-[24rem] h-auto"
+          className="flex relative flex-col gap-2   justify-center items-center sm:w-[95vw] lg:h-[30rem] md:h-[24rem]"
         >
           <img
             src={logos[currentLogo]}
             alt=""
-            className=" z-0 lg:h-[30rem] md:h-[24rem] h-auto rounded-3xl select-none"
+            className="object-cover z-0 lg:h-[30rem] h-[16rem] sm:h-[24rem] w-full rounded-3xl select-none"
           />
           <div className="flex absolute z-10 bottom-5 gap-2">
             {logos.map((_, index) => (

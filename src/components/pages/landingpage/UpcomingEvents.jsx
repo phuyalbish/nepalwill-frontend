@@ -40,10 +40,15 @@ export default function UpcomingEvents() {
 
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), 500); // Delay to prevent flickering
+        } else {
+          setTimeout(() => setIsVisible(false), 500);
+        }
+      },
       { threshold: 0.2 }
     );
 
@@ -64,7 +69,7 @@ export default function UpcomingEvents() {
       <div
         ref={containerRef}
         className={`flex flex-wrap gap-4 justify-center flex-grow-0 transition-all duration-500 ${
-          isVisible ? "animate-slideUpEvent opacity-100" : "opacity-0"
+          isVisible ? "md:animate-slideUpEvent opacity-100" : "md:opacity-0"
         }`}
       >
         {events.map((event, index) => (

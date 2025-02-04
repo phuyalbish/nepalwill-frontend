@@ -4,9 +4,9 @@ import SDImage1 from "@/assets/SDImage1.png";
 import SDImage2 from "@/assets/SDImage2.svg";
 export default function SustainableVision() {
   return (
-    <div className="flex flex-col sm:w-[80vw]  m-auto  gap-10">
+    <div className="flex flex-col  sm:w-[80vw]  m-auto  gap-10">
       <SectionHeadingTile heading="Linking NepalWill Vision with The Sustainable Development Goals" />
-      <div className="flex gap-10">
+      <div className="flex flex-wrap md:flex-nowrap gap-10">
         <div className="flex flex-col items-start gap-10">
           <img src={SDImage1} alt="" className=" w-48 h-48 select-none" />
           <div className="text-base">

@@ -1,4 +1,5 @@
 import ObjectivesCard from "@/components/cards/ObjectivesCard.jsx";
+import SectionHeadingTile from "@/components/tiles/SectionHeadingTile.jsx";
 
 const Objectives = () => {
   let objectives = [
@@ -46,8 +47,8 @@ const Objectives = () => {
   return (
     <>
       <div className="text-center p-[1rem]">
-        <div className="flex flex-col gap mx-auto relative w-full">
-          <h1 className="text-5xl mb-16">Objectives of NepalWill</h1>
+        <div className="flex sm:w-[90vw]  m-auto flex-col justify-center items-center gap-10">
+          <SectionHeadingTile heading="Objectives of NepalWill" />
           <div className="flex flex-col md:flex-row gap-10 justify-center flex-wrap">
             {objectivesUI}
           </div>

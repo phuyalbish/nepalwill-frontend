@@ -13,7 +13,7 @@ function WhyNepalWill() {
   return (
     <div className="flex sm:w-[90vw]  m-auto flex-col justify-center items-center gap-10">
       <SectionHeadingTile heading="Why NepalWill?" />
-      <div className="flex flex-col md:flex-row justify-evenly items-center gap-10 w-2/3">
+      <div className="flex flex-col lg:flex-row justify-evenly items-center gap-10 sm:w-2/3">
         <img
           src={logo}
           alt=""
@@ -24,8 +24,8 @@ function WhyNepalWill() {
           style={{ listStyleType: "url('')" }}
         >
           {whys.map((why, index) => (
-            <li className="flex gap-[0.8rem]">
-              <img src="/check_circle.svg" alt="" />
+            <li className="flex gap-[0.8rem] items-center">
+              <img src="/check_circle.svg" alt="" className="w-5 h-5" />
               <span>{why.title}</span>
             </li>
           ))}

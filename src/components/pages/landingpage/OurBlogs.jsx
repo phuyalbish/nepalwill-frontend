@@ -64,7 +64,7 @@ export default function OurBlogs() {
       <div
         ref={containerRef}
         className={`flex flex-wrap gap-4 justify-center transition-all duration-500 ${
-          isVisible ? "animate-slideUpEvent opacity-100" : "opacity-0"
+          isVisible ? "md:animate-slideUpEvent opacity-100" : "md:opacity-0"
         }`}
       >
         {blogs.map((blog, index) => (

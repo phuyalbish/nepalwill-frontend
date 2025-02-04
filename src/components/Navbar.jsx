@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
 import { IconContext } from "react-icons";
 import MainButton from "@/components/buttons/MainButton";
 import clsx from "clsx";
@@ -47,7 +48,7 @@ const Navbar = () => {
           webkitBackdropFilter: "blur(8px)",
           boxShadow: "0 4px 6px rgba(153, 242, 200, 0.4)",
         }}
-        className="z-50 relative md:sticky top-0 bg-background/70 border-primary flex justify-between items-center px-[2.5rem] py-[1rem]"
+        className="z-50  sticky top-0 bg-background/70 border-primary flex justify-between items-center px-[2.5rem] py-[1rem]"
       >
         <Link to="/">
           <p className="text-3xl">NepalWill</p>
@@ -59,7 +60,7 @@ const Navbar = () => {
               <Link to="/aboutus"> About</Link>
             </li>
             <li className="cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 px-[1rem] py-[0.5rem]">
-              Gallery
+              <Link to="/gallery">Gallery</Link>
             </li>
             <li className="cursor-pointer border-b-4 border-transparent hover:border-accent hover:-translate-y-[1px] transition-all duration-300 px-[1rem] py-[0.5rem]">
               Programs
@@ -79,7 +80,7 @@ const Navbar = () => {
         </div>
         <div className="block md:hidden" onClick={toggleNavbarVisibility}>
           <IconContext.Provider value={{ size: "1.5rem" }}>
-            <GiHamburgerMenu />
+            {showNavbar ? <IoMdClose /> : <GiHamburgerMenu />}
           </IconContext.Provider>
         </div>
       </nav>

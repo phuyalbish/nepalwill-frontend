@@ -35,7 +35,7 @@ export default function OurSupport() {
   return (
     <div className="flex sm:w-[90vw] m-auto flex-col justify-center gap-10">
       <SectionHeadingTile heading="Frequently Asked Questions" />
-      <div className="flex flex-col flex-wrap gap-5 justify-evenly flex-grow-0 w-[60vw] m-auto">
+      <div className="flex flex-col flex-wrap gap-5 justify-evenly flex-grow-0 w-full sm:w-[60vw] m-auto">
         {faqs.map((faq, index) => (
           <div
             key={index}

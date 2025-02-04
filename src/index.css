@@ -12,6 +12,8 @@
   --text: #000000;
   --success: #00ff00;
   --danger: #ff0000;
+
+  font-family: "Rethink Sans", serif;
 }
 * {
   font-family: "Rethink Sans", serif;
@@ -19,6 +21,9 @@
 body {
   font-family: "Rethink Sans", serif;
   color: var(--text);
+}
+.rethink-font {
+  font-family: "Rethink Sans", serif;
 }
 .heading-font {
   font-family: "Noto Serif", serif;

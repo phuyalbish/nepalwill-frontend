@@ -15,8 +15,16 @@ export default {
           "100%": { transform: "translateX(2.5%)" },
         },
         slideUpEvent: {
-          "0%": { transform: "translateX(-400px)", opacity: 0.6 },
-          "100%": { transform: "translateX(0)", opacity: 1 },
+          "0%": {
+            transform: "translate3d(-400px, 0, 0)",
+            opacity: 0.6,
+            willChange: "transform, opacity",
+          },
+          "100%": {
+            transform: "translate3d(0, 0, 0)",
+            opacity: 1,
+            animationFillMode: "forwards",
+          },
         },
         bounce: {
           "0%, 100%": { transform: "translateY(0)", opacity: 1 },

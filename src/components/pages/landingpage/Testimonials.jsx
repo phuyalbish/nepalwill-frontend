@@ -53,9 +53,9 @@ export default function Testimonials() {
     },
   ];
   return (
-    <div className="flex  m-auto flex-col justify-center gap-5">
+    <div className="flex m-auto flex-col justify-center gap-5">
       <SectionHeadingTile heading="What People Say about us!" />
-      <div className="flex gap-4  justify-center flex-grow-0 animate-marquee1 w-screen">
+      <div className="flex flex-col sm:flex-row gap-4  my-2  justify-center flex-grow-0 sm:animate-marquee1 m-auto sm:w-full w-[95vw]">
         {testimonials.map((event, index) => (
           <TestimonialTile
             key={index}
@@ -66,7 +66,7 @@ export default function Testimonials() {
         ))}
       </div>
 
-      <div className="flex gap-4  justify-center flex-grow-0 animate-marquee2 w-screen">
+      <div className="flex gap-4  flex-col sm:flex-row  justify-center flex-grow-0 sm:animate-marquee2 m-auto sm:w-screen w-[95vw]">
         {testimonials2.map((event, index) => (
           <TestimonialTile
             key={index}
