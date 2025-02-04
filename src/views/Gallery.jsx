@@ -12,15 +12,45 @@ import image7 from "@/assets/gallery7.png";
 import "@/assets/styles/mansonry.css";
 
 function Gallery() {
-  const images = [image1, image2, image3, image4, image5, image6, image7];
+  const images = [
+    {
+      src: image2,
+      class: "wide"
+    },
+    {
+      src: image1,
+      class: "normal"
+    },
+    
+    {
+      src: image3,
+      class: "normal"
+    },
+    {
+      src: image4,
+      class: "wide"
+    },
+    {
+      src: image5,
+      class: "big"
+    },
+    {
+      src: image6,
+      class: "wide"
+    },
+    {
+      src: image7,
+      class: "tall"
+    },
+  ]
   return (
     <PageLayout>
       <div className="flex sm:w-[90vw]  m-auto flex-col justify-center items-center gap-10">
         <SectionHeadingTile heading="Gallery" />
-        <div className="grid-wrapper">
-          {images.map((src, index) => (
-            <div key={index}>
-              <img src={src} alt={`Gallery Image ${index + 1}`} />
+        <div className="gallery ">
+          {images.map((img, index) => (
+            <div key={index} className={img.class}>
+              <img src={img.src} alt={`Gallery Image ${index + 1}`} />
             </div>
           ))}
         </div>
