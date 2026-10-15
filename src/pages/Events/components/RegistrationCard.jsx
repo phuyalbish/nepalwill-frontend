@@ -32,9 +32,14 @@ export default function RegistrationCard({ event }) {
         {r.ended ? "This event has already taken place." : "Free to attend. Registration takes under a minute."}
       </p>
 
-      {r.done ? (
-        <RegistrationSuccess name={lastSubmitted.name} attendees={lastSubmitted.attendees} onReset={r.reset} />
-      ) : r.ended ? (
+      {/* Mounted before the message exists so screen readers announce the insertion. */}
+      <div aria-live="polite" aria-atomic="true">
+        {r.done && (
+          <RegistrationSuccess name={lastSubmitted.name} attendees={lastSubmitted.attendees} onReset={r.reset} />
+        )}
+      </div>
+
+      {r.done ? null : r.ended ? (
         <div className="rounded-2xl bg-sage-50 p-5 text-center">
           <p className="font-bold text-ink">This event has ended</p>
           <p className="mt-1 text-sm text-muted">Registration is closed. Browse our programs to find what is coming next.</p>
