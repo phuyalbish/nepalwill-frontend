@@ -107,7 +107,7 @@ function Drawer({ onClose }) {
         </nav>
         <div className="mt-auto flex flex-col gap-3 pt-8">
           <Button to="/favorites" variant="outline" onClick={onClose}>
-            <Heart className="mr-2 inline h-4 w-4" aria-hidden="true" />
+            <Heart className="h-4 w-4" aria-hidden="true" />
             Favorites
           </Button>
           <Button to="/contact" arrow size="lg" onClick={onClose}>
@@ -120,7 +120,7 @@ function Drawer({ onClose }) {
 }
 
 /**
- * Sticky 72px site header: transparent at the top, glass (white/70 + blur + hairline) once scrolled.
+ * Sticky 72px site header: transparent at the top, glass (white/85 + blur + saturate + hairline) once scrolled.
  * Desktop: wordmark, centre NavLinks with an animated active pill, favorites heart with count badge,
  * magnetic "Get Involved". Below lg: heart + hamburger opening a right-hand drawer.
  */
@@ -136,7 +136,7 @@ export default function Navbar() {
       className={cn(
         "sticky top-0 z-50 h-[72px] border-b transition-[background-color,border-color,backdrop-filter] duration-300",
         scrolled
-          ? "border-ink/5 bg-white/70 backdrop-blur-xl"
+          ? "border-ink/5 bg-white/85 backdrop-blur-xl backdrop-saturate-150"
           : "border-transparent bg-transparent",
       )}
     >

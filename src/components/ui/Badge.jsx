@@ -18,7 +18,7 @@ export default function Badge({ variant = "purple", icon: Icon, className, child
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-pill px-3 py-1 text-[11px] font-bold uppercase leading-none tracking-[0.12em]",
+        "inline-flex items-center gap-1.5 whitespace-nowrap rounded-pill px-3 py-1 text-[11px] font-bold uppercase leading-none tracking-[0.12em]",
         VARIANTS[variant],
         className,
       )}

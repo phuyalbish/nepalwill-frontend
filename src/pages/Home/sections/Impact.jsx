@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useGetSiteQuery } from "@/api/nepalwillApi";
 import Button from "@/components/ui/Button";
@@ -43,21 +43,24 @@ export default function Impact() {
         <h2 className="h-section max-w-3xl !text-white">
           <span className="sr-only">{HEADLINE}</span>
           {HEADLINE.split(" ").map((word, i) => (
-            <span
-              key={`${word}-${i}`}
-              aria-hidden="true"
-              className="-mb-[0.14em] inline-block overflow-hidden pb-[0.14em] align-bottom"
-            >
-              <motion.span
-                className="inline-block"
-                initial={reduced ? { opacity: 0 } : { y: "115%" }}
-                whileInView={reduced ? { opacity: 1 } : { y: 0 }}
-                viewport={{ once: true, amount: 0.8 }}
-                transition={{ duration: 0.7, ease: EASE_OUT, delay: i * 0.08 }}
+            <Fragment key={`${word}-${i}`}>
+              {/* Real text node between words: a trailing space inside an inline-block collapses. */}
+              {i > 0 && " "}
+              <span
+                aria-hidden="true"
+                className="-mb-[0.14em] inline-block overflow-hidden pb-[0.14em] align-bottom"
               >
-                {word}{" "}
-              </motion.span>
-            </span>
+                <motion.span
+                  className="inline-block"
+                  initial={reduced ? { opacity: 0 } : { y: "115%" }}
+                  whileInView={reduced ? { opacity: 1 } : { y: 0 }}
+                  viewport={{ once: true, amount: 0.8 }}
+                  transition={{ duration: 0.7, ease: EASE_OUT, delay: i * 0.08 }}
+                >
+                  {word}
+                </motion.span>
+              </span>
+            </Fragment>
           ))}
         </h2>
         <p className="max-w-xl text-lg leading-8 text-white/75">

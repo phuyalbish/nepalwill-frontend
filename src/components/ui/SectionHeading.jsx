@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/cn";
 import { EASE_OUT } from "@/lib/motion";
@@ -8,22 +9,24 @@ function Words({ text, className, startIndex, reduced }) {
     .split(/\s+/)
     .filter(Boolean)
     .map((word, i) => (
-      <span
-        key={`${word}-${i}`}
-        className="inline-block overflow-hidden pb-[0.14em] -mb-[0.14em] align-bottom"
-        aria-hidden="true"
-      >
-        <motion.span
-          className={cn("inline-block", className)}
-          initial={reduced ? { opacity: 0 } : { y: "115%" }}
-          whileInView={reduced ? { opacity: 1 } : { y: 0 }}
-          viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 0.7, ease: EASE_OUT, delay: (startIndex + i) * 0.06 }}
+      <Fragment key={`${word}-${i}`}>
+        {/* Real text node between words: a trailing space inside an inline-block collapses. */}
+        {(startIndex > 0 || i > 0) && " "}
+        <span
+          className="inline-block overflow-hidden pb-[0.14em] -mb-[0.14em] align-bottom"
+          aria-hidden="true"
         >
-          {word}
-          {" "}
-        </motion.span>
-      </span>
+          <motion.span
+            className={cn("inline-block", className)}
+            initial={reduced ? { opacity: 0 } : { y: "115%" }}
+            whileInView={reduced ? { opacity: 1 } : { y: 0 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.7, ease: EASE_OUT, delay: (startIndex + i) * 0.06 }}
+          >
+            {word}
+          </motion.span>
+        </span>
+      </Fragment>
     ));
 }
 
