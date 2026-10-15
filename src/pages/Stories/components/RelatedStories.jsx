@@ -24,11 +24,9 @@ export default function RelatedStories({ story }) {
         title={isBlog ? "More from" : "More"}
         accent={isBlog ? "the blog." : "stories."}
         align="left"
+        id="more-heading"
         className="mb-10"
       />
-      <h2 id="more-heading" className="sr-only">
-        {isBlog ? "More blog posts" : "More stories"}
-      </h2>
       <StaggerGrid className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {related.map((item) => (
           <StaggerItem key={item.slug}>

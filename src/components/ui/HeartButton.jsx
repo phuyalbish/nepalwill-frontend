@@ -12,6 +12,7 @@ const PARTICLES = Array.from({ length: 6 }, (_, i) => (i / 6) * Math.PI * 2 - Ma
  * @param {{type:'event'|'program'|'story'|'blog', slug:string, title:string, image_url?:string, date?:string, subtitle?:string}} item
  * @param {'glass'|'plain'} variant  glass = white circle with blur, for use over images
  * @param {'sm'|'md'} size
+ * The label stays constant ("Save <title>"); aria-pressed carries the on/off state.
  * Click does not bubble or follow parent links, so it is safe on top of a stretched-link card.
  */
 export default function HeartButton({ item, variant = "glass", size = "md", className }) {
@@ -32,7 +33,7 @@ export default function HeartButton({ item, variant = "glass", size = "md", clas
     <button
       type="button"
       aria-pressed={active}
-      aria-label={active ? `Remove ${item.title} from favorites` : `Save ${item.title} to favorites`}
+      aria-label={`Save ${item.title}`}
       onClick={onClick}
       className={cn(
         "relative inline-flex shrink-0 items-center justify-center rounded-full transition-colors",

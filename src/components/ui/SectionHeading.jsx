@@ -38,6 +38,7 @@ function Words({ text, className, startIndex, reduced }) {
  * @param {string} subtitle   muted paragraph under the heading
  * @param {'center'|'left'} align
  * @param {'h1'|'h2'|'h3'} as heading tag; h1 uses the larger .h-display scale
+ * @param {string} id        id for the heading element (for aria-labelledby on the surrounding section)
  * @param {'light'|'dark'} tone  'dark' for dark gradient sections (white heading, mint eyebrow)
  */
 export default function SectionHeading({
@@ -48,6 +49,7 @@ export default function SectionHeading({
   align = "center",
   as: Tag = "h2",
   tone = "light",
+  id,
   className,
 }) {
   const reduced = useReducedMotion();
@@ -64,7 +66,7 @@ export default function SectionHeading({
       )}
     >
       {eyebrow && <Eyebrow tone={dark ? "mint" : "purple"}>{eyebrow}</Eyebrow>}
-      <Tag className={cn(Tag === "h1" ? "h-display" : "h-section", dark && "!text-white")}>
+      <Tag id={id} className={cn(Tag === "h1" ? "h-display" : "h-section", dark && "!text-white")}>
         <span className="sr-only">{plain}</span>
         {title && <Words text={title} startIndex={0} reduced={reduced} />}
         {accent && (

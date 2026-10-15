@@ -10,7 +10,12 @@ const HEAD = ["Item", "Donor", "Recipient school", "Impact", "Status", "Date"];
 export default function RecordTable({ records }) {
   const reduced = useReducedMotion();
   return (
-    <div className="hidden overflow-x-auto rounded-card border border-line bg-white shadow-soft md:block">
+    <div
+      role="region"
+      aria-label="Contribution records table, scrollable"
+      tabIndex={0}
+      className="hidden overflow-x-auto rounded-card border border-line bg-white shadow-soft md:block"
+    >
       <table className="w-full min-w-[820px] border-collapse text-left text-sm">
         <caption className="sr-only">Recent in-kind contribution records</caption>
         <thead>

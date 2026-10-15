@@ -55,9 +55,9 @@ export default function ContributeCards() {
                 variant="ghost"
                 to={`/contact?type=${type}`}
                 className="!text-mint hover:!text-white"
-                aria-label={`${title}: go to the contact form`}
               >
                 Learn More
+                <span className="sr-only"> about {title.toLowerCase()} and the contact form</span>
               </Button>
             </Card>
           </StaggerItem>
