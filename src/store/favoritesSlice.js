@@ -19,9 +19,18 @@ export function loadFavorites() {
         value &&
         FAVORITE_TYPES.includes(value.type) &&
         typeof value.slug === "string" &&
+        typeof value.title === "string" &&
         key === favoriteKey(value.type, value.slug)
       ) {
-        items[key] = value;
+        // Only known fields survive, all coerced to strings, so a hand-edited or old entry cannot crash a card.
+        items[key] = {
+          type: value.type,
+          slug: value.slug,
+          title: value.title,
+          image_url: typeof value.image_url === "string" ? value.image_url : "",
+          ...(typeof value.date === "string" && value.date ? { date: value.date } : {}),
+          ...(typeof value.subtitle === "string" && value.subtitle ? { subtitle: value.subtitle } : {}),
+        };
       }
     }
     return items;
@@ -66,10 +75,14 @@ const favoritesSlice = createSlice({
     clearFavorites(state) {
       state.items = {};
     },
+    /** payload: the sanitized items map from loadFavorites(); used to sync with other tabs. */
+    hydrateFavorites(state, { payload }) {
+      state.items = payload;
+    },
   },
 });
 
-export const { toggleFavorite, removeFavorite, clearFavorites } = favoritesSlice.actions;
+export const { toggleFavorite, removeFavorite, clearFavorites, hydrateFavorites } = favoritesSlice.actions;
 export default favoritesSlice.reducer;
 
 const selectItems = (state) => state.favorites.items;
