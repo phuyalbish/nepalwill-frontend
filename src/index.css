@@ -2,228 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary: #99f2c8;
-  --secondary: #89a2e5;
-  --accent: #735bda;
-  --dark-primary: #3ce293;
-  --background: #f6fdfa;
-  --dark-background: #e7f2ed;
-  --text: #000000;
-  --success: #00ff00;
-  --danger: #ff0000;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 96px;
+  }
 
-  font-family: "Rethink Sans", serif;
-}
-* {
-  font-family: "Rethink Sans", serif;
-}
-body {
-  font-family: "Rethink Sans", serif;
-  color: var(--text);
-}
-.rethink-font {
-  font-family: "Rethink Sans", serif;
-}
-.heading-font {
-  font-family: "Noto Serif", serif;
-  color: var(--text);
-}
-/* Text */
-.text-default {
-  color: var(--text);
-}
-.text-primary {
-  color: var(--primary);
-}
+  body {
+    @apply bg-page font-sans text-base text-ink antialiased;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(60% 45% at 92% -5%, rgb(153 242 200 / 0.38), transparent 70%),
+      radial-gradient(45% 35% at -5% 28%, rgb(153 242 200 / 0.22), transparent 70%),
+      radial-gradient(40% 30% at 100% 62%, rgb(115 91 218 / 0.05), transparent 70%);
+    background-repeat: no-repeat;
+  }
 
-.text-dark-primary {
-  color: var(--dark-primary);
-}
-.text-secondary {
-  color: var(--secondary);
-}
-.text-accent {
-  color: var(--accent);
-}
-.text-success {
-  color: var(--success);
-}
-.text-danger {
-  color: var(--danger);
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: #99f2c8;
+    color: #0a1a0f;
+  }
+
+  :focus-visible {
+    outline: 2px solid #735bda;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
-/* Background */
-.bg-primary {
-  background-color: var(--primary);
-}
-.bg-dark-primary {
-  background-color: var(--dark-primary);
-}
+@layer components {
+  /* Small uppercase label above section headings. */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase text-purple;
+    letter-spacing: 0.25em;
+  }
 
-.bg-dark-primary {
-  color: var(--dark-primary);
-}
-.bg-secondary {
-  background-color: var(--secondary);
-}
-.bg-accent {
-  background-color: var(--accent);
-}
+  /* Hero scale: 44px on phones up to 72px on desktop. */
+  .h-display {
+    @apply font-display font-normal text-ink;
+    font-size: clamp(2.75rem, 1.6rem + 4.2vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
 
-.bg-background {
-  background-color: var(--background);
-}
+  /* Section heading scale: 34px on phones up to 48px on desktop. */
+  .h-section {
+    @apply font-display font-normal text-ink;
+    font-size: clamp(2.125rem, 1.4rem + 2.4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
 
-.bg-dark-background {
-  background-color: var(--dark-background);
-}
+  /* Content column: 1200px of content on wide screens, 20px gutters on phones, 24px from tablet. */
+  .container-page {
+    @apply mx-auto w-full px-5 md:px-6;
+    max-width: 1248px;
+  }
 
-.bg-success {
-  background-color: var(--success);
-}
-.bg-danger {
-  background-color: var(--danger);
-}
+  /* Faint film grain. Put on a positioned parent; content should sit above with relative z-10. */
+  .grain {
+    position: relative;
+    isolation: isolate;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
 
-/* Border */
-.border-primary {
-  border-color: var(--primary);
-}
-.border-dark-primary {
-  border-color: var(--dark-primary);
-}
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 
-.border-text {
-  border-color: var(--text);
-}
-.border-secondary {
-  border-color: var(--secondary);
-}
-.border-accent {
-  border-color: var(--accent);
-}
-.border-success {
-  border-color: var(--success);
-}
-.border-danger {
-  border-color: var(--danger);
-}
-
-/* Fill */
-.fill-primary {
-  fill: var(--primary);
-}
-
-.fill-text {
-  fill: var(--text);
-}
-
-.fill-dark-primary {
-  fill: var(--dark-primary);
-}
-.fill-secondary {
-  fill: var(--secondary);
-}
-.fill-accent {
-  fill: var(--accent);
-}
-
-.fill-success {
-  fill: var(--success);
-}
-.fill-danger {
-  fill: var(--danger);
-}
-
-/* Hover Text */
-.hover\:text-primary:hover {
-  color: var(--primary);
-}
-.hover\:text-dark-primary:hover {
-  color: var(--dark-primary);
-}
-
-.hover\:text-secondary:hover {
-  color: var(--secondary);
-}
-.hover\:text-accent:hover {
-  color: var(--accent);
-}
-
-.hover\:text-success:hover {
-  color: var(--success);
-}
-.hover\:text-danger:hover {
-  color: var(--danger);
-}
-
-.hover\:text-default:hover {
-  color: var(--text);
-}
-
-/* Hover Background */
-
-.hover\:bg-primary:hover {
-  background-color: var(--primary);
-}
-.hover\:bg-dark-primary:hover {
-  background-color: var(--dark-primary);
-}
-
-.hover\:bg-secondary:hover {
-  background-color: var(--secondary);
-}
-.hover\:bg-accent:hover {
-  background-color: var(--accent);
-}
-
-.hover\:bg-success:hover {
-  background-color: var(--success);
-}
-.hover\:bg-danger:hover {
-  background-color: var(--danger);
-}
-
-/* Hover Border */
-.hover\:border-primary:hover {
-  border-color: var(--primary);
-}
-.hover\:border-dark-primary:hover {
-  border-color: var(--dark-primary);
-}
-.hover\:border-secondary:hover {
-  border-color: var(--secondary);
-}
-.hover\:border-accent:hover {
-  border-color: var(--accent);
-}
-
-.hover\:border-success:hover {
-  border-color: var(--success);
-}
-.hover\:border-danger:hover {
-  border-color: var(--danger);
-}
-
-/* Focus   */
-
-.focus\:primary:focus {
-  border-color: var(--primary);
-}
-.focus\:dark-primary:focus {
-  border-color: var(--dark-primary);
-}
-.focus\:secondary:focus {
-  border-color: var(--secondary);
-}
-.focus\:accent:focus {
-  border-color: var(--accent);
-}
-
-.focus\:success:focus {
-  border-color: var(--success);
-}
-.focus\:danger:focus {
-  border-color: var(--danger);
+  .skip-link {
+    @apply absolute left-4 top-4 z-[100] -translate-y-24 rounded-pill bg-ink px-4 py-2 text-sm font-medium text-white transition-transform focus:translate-y-0;
+  }
 }

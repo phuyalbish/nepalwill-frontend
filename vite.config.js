@@ -14,11 +14,18 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 5173,
+    proxy: {
+      "/api": {
+        target: process.env.BACKEND_URL || "http://localhost:8090",
+        changeOrigin: true,
+      },
+    },
   },
 
   build: {
     outDir: "dist",
   },
 
-  base: "./",
+  // Absolute base: nested routes such as /programs/:slug must resolve assets from the site root.
+  base: "/",
 });
