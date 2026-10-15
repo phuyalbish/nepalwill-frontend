@@ -1,5 +1,5 @@
-import PagePlaceholder from "@/pages/PagePlaceholder";
+import ArticlePage from "./components/ArticlePage";
 
 export default function StoryDetail() {
-  return <PagePlaceholder title="Story" subtitle="Placeholder: the story detail page is built next." />;
+  return <ArticlePage kind="story" />;
 }

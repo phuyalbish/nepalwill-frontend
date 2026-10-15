@@ -1,5 +1,5 @@
-import PagePlaceholder from "@/pages/PagePlaceholder";
+import StoryListPage from "./components/StoryListPage";
 
 export default function Blog() {
-  return <PagePlaceholder title="Blog" subtitle="Placeholder: the blog list is built next." />;
+  return <StoryListPage kind="blog" />;
 }

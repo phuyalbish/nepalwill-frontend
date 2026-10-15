@@ -1,5 +1,5 @@
-import PagePlaceholder from "@/pages/PagePlaceholder";
+import ArticlePage from "./components/ArticlePage";
 
 export default function BlogDetail() {
-  return <PagePlaceholder title="Blog post" subtitle="Placeholder: the blog post page is built next." />;
+  return <ArticlePage kind="blog" />;
 }
