@@ -27,11 +27,13 @@ export default function ContactForm() {
 
   return (
     <div className="rounded-hero border border-line bg-white p-5 shadow-soft sm:p-8">
-      {f.done ? (
-        <ContactSuccess onReset={f.reset} />
-      ) : (
+      {/* Mounted before the message exists so screen readers announce the insertion. */}
+      <div aria-live="polite" aria-atomic="true">
+        {f.done && <ContactSuccess onReset={f.reset} />}
+      </div>
+      {!f.done && (
         <>
-          <Tabs tabs={TABS} value={f.type} onChange={f.setType} label="Type of inquiry" idPrefix={TAB_PREFIX} className="-mx-1 mb-3" />
+          <Tabs tabs={TABS} value={f.type} onChange={f.setType} label="Type of inquiry" idPrefix={TAB_PREFIX} layout="grid" className="-mx-1 mb-3" />
           <form id="contact-form" onSubmit={f.submit} noValidate className="flex flex-col gap-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <Input label="Name" required name="name" autoComplete="name" maxLength={50} value={f.shared.name} onChange={f.setSharedField("name")} error={f.errors.name} />

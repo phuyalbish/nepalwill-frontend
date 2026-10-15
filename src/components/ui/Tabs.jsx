@@ -9,6 +9,7 @@ import { panelId, tabId } from "./tabIds";
  * @param {string} value                 id of the active tab
  * @param {(id:string)=>void} onChange
  * @param {boolean} sticky               render as a sticky filter bar under the 72px navbar (full width, blurred)
+ * @param {"scroll"|"grid"} layout       "grid" shows a 2-column grid of tabs below the sm breakpoint (no scrolling) and the usual row from sm up
  * @param {string} label                 accessible name for the tablist
  * @param {string} idPrefix              when set, every tab gets id=tabId(idPrefix, tab.id) and aria-controls=panelId(idPrefix, tab.id);
  *                                       give the matching panel `id={panelId(idPrefix, value)}`, `role="tabpanel"` and
@@ -23,6 +24,7 @@ export default function Tabs({
   sticky = false,
   label = "Filter",
   idPrefix,
+  layout = "scroll",
   className,
 }) {
   const reduced = useReducedMotion();
@@ -73,6 +75,7 @@ export default function Tabs({
     listRef.current?.querySelectorAll('[role="tab"]')[next]?.focus();
   };
 
+  const grid = layout === "grid";
   const fade = sticky ? "from-page" : "from-white";
 
   const list = (
@@ -83,7 +86,12 @@ export default function Tabs({
         aria-label={label}
         onKeyDown={onKeyDown}
         onScroll={measure}
-        className="no-scrollbar relative flex snap-x snap-proximity gap-1 overflow-x-auto overscroll-x-contain py-3"
+        className={cn(
+          "no-scrollbar relative py-3",
+          grid
+            ? "grid grid-cols-2 gap-1.5 sm:flex sm:snap-x sm:snap-proximity sm:gap-1 sm:overflow-x-auto sm:overscroll-x-contain"
+            : "flex snap-x snap-proximity gap-1 overflow-x-auto overscroll-x-contain",
+        )}
       >
         {tabs.map((tab) => {
           const active = tab.id === value;
@@ -99,6 +107,7 @@ export default function Tabs({
               onClick={() => onChange(tab.id)}
               className={cn(
                 "relative shrink-0 snap-center rounded-pill px-5 py-2.5 text-sm font-medium transition-colors",
+                grid && "max-sm:bg-ink/5",
                 active ? "text-white" : "text-ink-700 hover:text-ink",
               )}
             >
