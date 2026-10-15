@@ -23,7 +23,7 @@ export default function StoryCard({ story }) {
       <ImageWithFallback
         src={story.image_url}
         alt=""
-        className="absolute inset-0 h-full w-full"
+        fill
         imgClassName="transition-transform duration-700 group-hover/card:scale-105"
       />
       <div aria-hidden="true" className="absolute inset-0 bg-scrim" />
@@ -47,7 +47,7 @@ export default function StoryCard({ story }) {
           >
             {CATEGORY_LABELS[story.category] ?? story.category}
           </Badge>
-          {metric.value && <Chip value={metric.value} label={metric.label} className="py-1 text-xs" />}
+          {(metric.value || metric.label) && <Chip value={metric.value} label={metric.label} className="py-1 text-xs" />}
         </div>
         <h3 className="font-display text-2xl leading-tight text-white md:text-[28px]">
           <Link

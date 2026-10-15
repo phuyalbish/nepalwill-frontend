@@ -18,7 +18,7 @@ export default function CtaBand({
         src={cta}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full"
+        fill
       />
       <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/70 to-ink/40" />
       <div className="container-page relative z-10 flex flex-col items-start gap-5">

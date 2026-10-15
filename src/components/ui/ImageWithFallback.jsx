@@ -6,6 +6,7 @@ import { cn } from "@/lib/cn";
 /**
  * Lazy image that fades in on load and shows a neutral gradient if it fails or has no src.
  * className sizes the WRAPPER (e.g. "aspect-[4/3] rounded-card"); the image fills it with object-cover.
+ * @param {boolean} fill         position the wrapper absolute inset-0 so it covers its nearest positioned ancestor (card backgrounds)
  * @param {string} src
  * @param {string} alt
  * @param {string} imgClassName  extra classes for the <img> (e.g. hover zoom "transition-transform group-hover:scale-105")
@@ -19,6 +20,7 @@ export default function ImageWithFallback({
   imgClassName,
   priority = false,
   layoutId,
+  fill = false,
   ...rest
 }) {
   const [failedSrc, setFailedSrc] = useState(null);
@@ -27,7 +29,8 @@ export default function ImageWithFallback({
   return (
     <div
       className={cn(
-        "relative overflow-hidden bg-gradient-to-br from-sage-50 via-mint-50 to-purple-50",
+        "overflow-hidden bg-gradient-to-br from-sage-50 via-mint-50 to-purple-50",
+        fill ? "absolute inset-0 h-full w-full" : "relative",
         className,
       )}
     >
