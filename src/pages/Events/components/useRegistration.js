@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRegisterForEventMutation } from "@/api/nepalwillApi";
+import { hasEnded } from "./eventFormat";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const EMPTY = { name: "", email: "", attendees: "1", message: "" };
@@ -22,6 +23,7 @@ export function useRegistration(event) {
   const registered = counts?.registered_count ?? event.registered_count;
   const capacity = counts?.capacity ?? event.capacity;
   const spotsLeft = Math.max(capacity - registered, 0);
+  const ended = hasEnded(event.date);
 
   const setField = (name) => (e) => {
     setValues((v) => ({ ...v, [name]: e.target.value }));
@@ -88,5 +90,5 @@ export function useRegistration(event) {
     setDone(false);
   };
 
-  return { values, errors, formError, done, isLoading, registered, capacity, spotsLeft, setField, submit, reset };
+  return { values, errors, formError, done, isLoading, registered, capacity, spotsLeft, ended, setField, submit, reset };
 }

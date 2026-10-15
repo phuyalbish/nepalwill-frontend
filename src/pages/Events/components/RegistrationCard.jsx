@@ -28,10 +28,20 @@ export default function RegistrationCard({ event }) {
   return (
     <Card hover={false} id="register" className="scroll-mt-24 p-6 lg:sticky lg:top-24">
       <h2 className="font-display text-3xl text-ink">Reserve your spot</h2>
-      <p className="mb-5 mt-1 text-sm text-muted">Free to attend. Registration takes under a minute.</p>
+      <p className="mb-5 mt-1 text-sm text-muted">
+        {r.ended ? "This event has already taken place." : "Free to attend. Registration takes under a minute."}
+      </p>
 
       {r.done ? (
         <RegistrationSuccess name={lastSubmitted.name} attendees={lastSubmitted.attendees} onReset={r.reset} />
+      ) : r.ended ? (
+        <div className="rounded-2xl bg-sage-50 p-5 text-center">
+          <p className="font-bold text-ink">This event has ended</p>
+          <p className="mt-1 text-sm text-muted">Registration is closed. Browse our programs to find what is coming next.</p>
+          <Button to="/programs" variant="outline" className="mt-4 w-full">
+            Browse programs
+          </Button>
+        </div>
       ) : full ? (
         <div role="status" className="rounded-2xl bg-sage-50 p-5 text-center">
           <p className="font-bold text-ink">Event is full</p>
@@ -75,16 +85,18 @@ export default function RegistrationCard({ event }) {
         value={r.registered}
         max={r.capacity}
       />
-      <Button
-        href={googleCalendarUrl(event)}
-        variant="outline"
-        size="md"
-        className="mt-5 w-full"
-        aria-label="Add to Google Calendar (opens in a new tab)"
-      >
-        <CalendarPlus className="h-4 w-4" aria-hidden="true" />
-        Add to calendar
-      </Button>
+      {!r.ended && (
+        <Button
+          href={googleCalendarUrl(event)}
+          variant="outline"
+          size="md"
+          className="mt-5 w-full"
+          aria-label="Add to Google Calendar (opens in a new tab)"
+        >
+          <CalendarPlus className="h-4 w-4" aria-hidden="true" />
+          Add to calendar
+        </Button>
+      )}
     </Card>
   );
 }

@@ -5,7 +5,7 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import HeartButton from "@/components/ui/HeartButton";
 import DetailHero from "@/pages/Programs/components/DetailHero";
-import { formatLongDate, formatTimeRange } from "./eventFormat";
+import { formatLongDate, formatTimeRange, hasEnded } from "./eventFormat";
 
 function Meta({ icon: Icon, children }) {
   return (
@@ -71,9 +71,11 @@ export default function EventHeader({ event }) {
           <Meta icon={HandHeart}>{event.volunteers_needed} volunteers needed</Meta>
         )}
       </ul>
-      <Button href="#register" size="md" className="mt-7 lg:hidden">
-        Register now
-      </Button>
+      {!hasEnded(event.date) && (
+        <Button href="#register" size="md" className="mt-7 lg:hidden">
+          Register now
+        </Button>
+      )}
     </DetailHero>
   );
 }

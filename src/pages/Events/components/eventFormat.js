@@ -8,6 +8,16 @@ const parseDate = (iso) => new Date(`${iso}T00:00:00Z`);
 const fmt = (iso, options) =>
   new Intl.DateTimeFormat("en-GB", { timeZone: "UTC", ...options }).format(parseDate(iso));
 
+/** Today as "YYYY-MM-DD" in Nepal (the venue timezone), whatever the viewer's timezone. */
+export function todayInKathmandu() {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kathmandu" }).format(new Date());
+}
+
+/** True when the event date ("YYYY-MM-DD") is before today in Asia/Kathmandu. */
+export function hasEnded(iso) {
+  return Boolean(iso) && iso < todayInKathmandu();
+}
+
 /** "Saturday, 15 Nov 2026" */
 export function formatLongDate(iso) {
   if (!iso) return "";
