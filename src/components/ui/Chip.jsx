@@ -2,8 +2,10 @@ import { cn } from "@/lib/cn";
 
 /**
  * Metric chip: bold purple value with a muted label, e.g. value="52" label="Books Read".
+ * `value` is optional: without it only the label renders, with no empty element or stray gap.
  */
 export default function Chip({ value, label, className, ...rest }) {
+  const hasValue = value !== undefined && value !== null && value !== "";
   return (
     <span
       className={cn(
@@ -12,8 +14,8 @@ export default function Chip({ value, label, className, ...rest }) {
       )}
       {...rest}
     >
-      <strong className="font-bold text-purple">{value}</strong>
-      <span className="text-muted">{label}</span>
+      {hasValue && <strong className="font-bold text-purple">{value}</strong>}
+      {label ? <span className={hasValue ? "text-muted" : "text-ink-700"}>{label}</span> : null}
     </span>
   );
 }

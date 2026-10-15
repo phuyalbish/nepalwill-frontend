@@ -3,11 +3,14 @@ import { CircleAlert } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Tabs from "@/components/ui/Tabs";
+import { panelId, tabId } from "@/components/ui/tabIds";
 import Textarea from "@/components/ui/Textarea";
 import ContactSuccess from "./ContactSuccess";
 import TypeFields from "./TypeFields";
 import { TABS } from "./contactConfig";
 import { useContactForm } from "./useContactForm";
+
+const TAB_PREFIX = "contact-type";
 
 const MESSAGE_LABEL = {
   volunteer: "Tell us about yourself",
@@ -28,7 +31,7 @@ export default function ContactForm() {
         <ContactSuccess onReset={f.reset} />
       ) : (
         <>
-          <Tabs tabs={TABS} value={f.type} onChange={f.setType} label="Type of inquiry" className="-mx-1 mb-3" />
+          <Tabs tabs={TABS} value={f.type} onChange={f.setType} label="Type of inquiry" idPrefix={TAB_PREFIX} className="-mx-1 mb-3" />
           <form id="contact-form" onSubmit={f.submit} noValidate className="flex flex-col gap-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <Input label="Name" required name="name" autoComplete="name" maxLength={50} value={f.shared.name} onChange={f.setSharedField("name")} error={f.errors.name} />
@@ -41,7 +44,8 @@ export default function ContactForm() {
                 <motion.div
                   key={f.type}
                   role="tabpanel"
-                  aria-label={TABS.find((t) => t.id === f.type).label}
+                  id={panelId(TAB_PREFIX, f.type)}
+                  aria-labelledby={tabId(TAB_PREFIX, f.type)}
                   initial={{ opacity: 0, y: reduced ? 0 : 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: reduced ? 0 : -10 }}

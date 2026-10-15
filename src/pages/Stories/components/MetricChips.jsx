@@ -12,11 +12,7 @@ export default function MetricChips({ story, max = 3, className }) {
         const { value, label } = splitMetric(text);
         return (
           <li key={text}>
-            <Chip
-              value={value}
-              label={label}
-              className="gap-1.5 [&>strong:empty]:hidden [&>span:empty]:hidden"
-            />
+            <Chip value={value} label={label} />
           </li>
         );
       })}

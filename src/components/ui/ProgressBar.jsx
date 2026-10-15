@@ -8,7 +8,7 @@ import { EASE_OUT } from "@/lib/motion";
  * @param {number} value
  * @param {number} max           default 100
  * @param {string} label         text on the left
- * @param {string} valueLabel    text on the right (default "value / max")
+ * @param {string|null} valueLabel text on the right: undefined = default "value / max", null = hidden
  * @param {'mint'|'purple'} tone
  */
 export default function ProgressBar({
@@ -23,13 +23,14 @@ export default function ProgressBar({
   const inView = useInView(ref, { once: true, amount: 0.8 });
   const reduced = useReducedMotion();
   const pct = Math.min(Math.max(max > 0 ? value / max : 0, 0), 1);
+  const rightText = valueLabel === undefined ? `${value} / ${max}` : valueLabel;
 
   return (
     <div ref={ref} className={cn("w-full", className)}>
-      {(label || valueLabel !== null) && (
+      {(label || rightText !== null) && (
         <div className="mb-2 flex items-baseline justify-between gap-3 text-sm">
           <span className="font-medium text-ink">{label}</span>
-          <span className="text-muted">{valueLabel ?? `${value} / ${max}`}</span>
+          {rightText !== null && <span className="text-muted">{rightText}</span>}
         </div>
       )}
       <div

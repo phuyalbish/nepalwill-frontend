@@ -9,7 +9,7 @@ const FINE_POINTER = "(hover: hover) and (pointer: fine)";
  * @param {boolean} glow      cursor-follow mint radial highlight
  * @param {boolean} tilt      3D tilt toward the cursor (max 6deg)
  * @param {boolean} hover     lift -4px with the tinted shadow on hover (default true)
- * @param {boolean} selected  2px purple border (selected or active event)
+ * @param {boolean} selected  purple selection ring (selected or active event); geometry never changes
  * @param {string} as         tag, default 'div' (use 'article' for list items)
  * Do not nest a <button> inside a <Link> wrapper; use a stretched link
  * (`<Link className="after:absolute after:inset-0">`) and keep HeartButton above it with relative z-10.
@@ -67,7 +67,7 @@ export default function Card({
       style={tilt && !reduced ? { rotateX, rotateY, transformPerspective: 900 } : undefined}
       className={cn(
         "group/card relative rounded-card border bg-white shadow-soft transition-[box-shadow,border-color] duration-300",
-        selected ? "border-2 border-purple" : "border-line",
+        selected ? "border-purple ring-1 ring-purple" : "border-line",
         hover && "hover:shadow-lift",
         selected && hover && "hover:border-purple",
         className,

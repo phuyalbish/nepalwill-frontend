@@ -82,7 +82,7 @@ export default function RegistrationCard({ event }) {
         className="mt-5 w-full"
         aria-label="Add to Google Calendar (opens in a new tab)"
       >
-        <CalendarPlus className="mr-2 inline h-4 w-4 align-[-3px]" aria-hidden="true" />
+        <CalendarPlus className="h-4 w-4" aria-hidden="true" />
         Add to calendar
       </Button>
     </Card>

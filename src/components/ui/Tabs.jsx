@@ -1,6 +1,7 @@
 import { useId, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/cn";
+import { panelId, tabId } from "./tabIds";
 
 /**
  * Controlled pill tabs with an animated highlight that slides between tabs.
@@ -9,9 +10,12 @@ import { cn } from "@/lib/cn";
  * @param {(id:string)=>void} onChange
  * @param {boolean} sticky               render as a sticky filter bar under the 72px navbar (full width, blurred)
  * @param {string} label                 accessible name for the tablist
+ * @param {string} idPrefix              when set, every tab gets id=tabId(idPrefix, tab.id) and aria-controls=panelId(idPrefix, tab.id);
+ *                                       give the matching panel `id={panelId(idPrefix, value)}`, `role="tabpanel"` and
+ *                                       `aria-labelledby={tabId(idPrefix, value)}` (helpers live in ./tabIds)
  * Active tab is solid ink with white text and a small count, matching the stories filter bar.
  */
-export default function Tabs({ tabs, value, onChange, sticky = false, label = "Filter", className }) {
+export default function Tabs({ tabs, value, onChange, sticky = false, label = "Filter", idPrefix, className }) {
   const reduced = useReducedMotion();
   const layoutId = useId();
   const listRef = useRef(null);
@@ -20,7 +24,10 @@ export default function Tabs({ tabs, value, onChange, sticky = false, label = "F
     const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
     if (!keys.includes(event.key)) return;
     event.preventDefault();
-    const index = tabs.findIndex((t) => t.id === value);
+    const index = Math.max(
+      0,
+      tabs.findIndex((t) => t.id === value),
+    );
     let next = index;
     if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
     if (event.key === "ArrowLeft") next = (index - 1 + tabs.length) % tabs.length;
@@ -45,7 +52,9 @@ export default function Tabs({ tabs, value, onChange, sticky = false, label = "F
             key={tab.id}
             type="button"
             role="tab"
+            id={idPrefix ? tabId(idPrefix, tab.id) : undefined}
             aria-selected={active}
+            aria-controls={idPrefix ? panelId(idPrefix, tab.id) : undefined}
             tabIndex={active ? 0 : -1}
             onClick={() => onChange(tab.id)}
             className={cn(

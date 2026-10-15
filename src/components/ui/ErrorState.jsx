@@ -33,7 +33,7 @@ export default function ErrorState({
       <p className="max-w-md text-muted">{message ?? getErrorMessage(error)}</p>
       {onRetry && (
         <Button variant="dark" size="sm" onClick={onRetry} className="mt-2">
-          <RotateCw className="mr-1.5 inline h-4 w-4" aria-hidden="true" />
+          <RotateCw className="h-4 w-4" aria-hidden="true" />
           {retryLabel}
         </Button>
       )}

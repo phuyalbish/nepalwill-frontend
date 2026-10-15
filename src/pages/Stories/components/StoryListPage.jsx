@@ -6,11 +6,14 @@ import ErrorState from "@/components/ui/ErrorState";
 import SectionHeading from "@/components/ui/SectionHeading";
 import StaggerGrid, { StaggerItem } from "@/components/ui/StaggerGrid";
 import Tabs from "@/components/ui/Tabs";
+import { panelId, tabId } from "@/components/ui/tabIds";
 import { useGetStoriesQuery } from "@/api/nepalwillApi";
 import BlogCard from "./BlogCard";
 import { BlogGridSkeleton, StoryRowsSkeleton } from "./ListSkeletons";
 import StoryRow from "./StoryRow";
 import { useStoryFilter } from "./useStoryFilter";
+
+const TAB_PREFIX = "story-filter";
 
 const COPY = {
   story: {
@@ -58,9 +61,21 @@ export default function StoryListPage({ kind }) {
         </div>
       </header>
 
-      <Tabs sticky tabs={tabs} value={filter} onChange={setFilter} label={copy.tabsLabel} />
+      <Tabs
+        sticky
+        tabs={tabs}
+        value={filter}
+        onChange={setFilter}
+        label={copy.tabsLabel}
+        idPrefix={TAB_PREFIX}
+      />
 
-      <div className="container-page pb-20 pt-6 md:pb-28">
+      <div
+        role="tabpanel"
+        id={panelId(TAB_PREFIX, filter)}
+        aria-labelledby={tabId(TAB_PREFIX, filter)}
+        className="container-page pb-20 pt-6 md:pb-28"
+      >
         {loading && (kind === "story" ? <StoryRowsSkeleton /> : <BlogGridSkeleton />)}
         {query.isError && (
           <ErrorState

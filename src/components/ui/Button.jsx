@@ -56,7 +56,7 @@ export default function Button({
   const content = (
     <>
       {loading && <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />}
-      <span>{children}</span>
+      <span className="inline-flex items-center gap-2">{children}</span>
       {showArrow && !loading && (
         <ArrowRight
           className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
