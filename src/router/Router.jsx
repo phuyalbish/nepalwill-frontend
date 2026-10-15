@@ -25,6 +25,7 @@ function RouteError() {
   return (
     <div className="container-page flex min-h-screen flex-col items-center justify-center gap-4 py-16">
       <ErrorState
+        as="h1"
         message="This page failed to load. Reload to try again."
         onRetry={() => window.location.reload()}
       />

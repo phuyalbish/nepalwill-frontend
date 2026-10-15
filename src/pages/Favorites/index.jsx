@@ -5,8 +5,10 @@ import EmptyState from "@/components/ui/EmptyState";
 import { selectFavoritesByType } from "@/store/favoritesSlice";
 import ClearAll from "./components/ClearAll";
 import FavoritesSection from "./components/FavoritesSection";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export default function Favorites() {
+  useDocumentTitle("Favorites");
   const { event, program, story, blog } = useSelector(selectFavoritesByType);
   const eventsAndPrograms = [...event, ...program];
   const blogsAndStories = [...story, ...blog];

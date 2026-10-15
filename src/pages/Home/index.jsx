@@ -9,9 +9,11 @@ import Supporters from "./sections/Supporters";
 import Testimonials from "./sections/Testimonials";
 import TransparencyBanner from "./sections/TransparencyBanner";
 import Why from "./sections/Why";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 /** Home page: hero, numbers, events, reasons, impact, SDGs, voices, stories, trust and FAQ. */
 export default function Home() {
+  useDocumentTitle();
   return (
     <>
       <Hero />

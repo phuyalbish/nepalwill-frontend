@@ -12,6 +12,7 @@ import ArticleMeta from "./ArticleMeta";
 import ReadingProgress from "./ReadingProgress";
 import RelatedStories from "./RelatedStories";
 import ShareBar from "./ShareBar";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const LIST = {
   story: { to: "/stories", back: "All stories", noun: "story" },
@@ -38,6 +39,7 @@ export default function ArticlePage({ kind }) {
   const copy = LIST[kind];
   const { data: story, error, isLoading, refetch } = useGetStoryQuery(slug);
   const notFound = error?.status === 404;
+  useDocumentTitle(story?.title ?? (notFound ? "Not found" : null));
 
   return (
     <div className="container-page max-w-5xl pb-20 pt-8 md:pb-28 md:pt-12">
@@ -52,6 +54,7 @@ export default function ArticlePage({ kind }) {
       {isLoading && <ArticleSkeleton />}
       {notFound && (
         <EmptyState
+          as="h1"
           icon={SearchX}
           title={`We could not find that ${copy.noun}`}
           description="It may have been moved or unpublished. The full list is a click away."
@@ -59,7 +62,7 @@ export default function ArticlePage({ kind }) {
         />
       )}
       {error && !notFound && (
-        <ErrorState error={error} onRetry={refetch} title={`We could not load this ${copy.noun}`} />
+        <ErrorState as="h1" error={error} onRetry={refetch} title={`We could not load this ${copy.noun}`} />
       )}
 
       {story && (

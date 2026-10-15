@@ -9,9 +9,11 @@ import MissionVision from "./sections/MissionVision";
 import Objectives from "./sections/Objectives";
 import Story from "./sections/Story";
 import Team from "./sections/Team";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 /** About page: mission, story since 2015, values, in-kind process, team and a closing call to action. */
 export default function About() {
+  useDocumentTitle("About");
   return (
     <>
       <Intro />

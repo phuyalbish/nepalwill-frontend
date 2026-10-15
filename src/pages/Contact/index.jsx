@@ -1,8 +1,10 @@
 import SectionHeading from "@/components/ui/SectionHeading";
 import ContactForm from "./components/ContactForm";
 import ContactInfo from "./components/ContactInfo";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export default function Contact() {
+  useDocumentTitle("Contact");
   return (
     <section className="container-page py-16 md:py-24">
       <SectionHeading

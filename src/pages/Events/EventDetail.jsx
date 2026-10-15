@@ -6,6 +6,7 @@ import DetailNotFound from "@/pages/Programs/components/DetailNotFound";
 import EventBody from "./components/EventBody";
 import EventHeader from "./components/EventHeader";
 import RegistrationCard from "./components/RegistrationCard";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 function DetailSkeleton() {
   return (
@@ -26,6 +27,7 @@ function DetailSkeleton() {
 export default function EventDetail() {
   const { slug } = useParams();
   const { data: event, isLoading, isError, error, refetch } = useGetEventQuery(slug);
+  useDocumentTitle(event?.title ?? (error?.status === 404 ? "Event not found" : null));
 
   if (isLoading) return <DetailSkeleton />;
   if (isError && error?.status === 404)
@@ -40,7 +42,7 @@ export default function EventDetail() {
   if (isError)
     return (
       <div className="container-page py-20">
-        <ErrorState error={error} title="We could not load this event" onRetry={refetch} />
+        <ErrorState as="h1" error={error} title="We could not load this event" onRetry={refetch} />
       </div>
     );
 

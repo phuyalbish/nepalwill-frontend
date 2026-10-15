@@ -8,6 +8,7 @@ import Button from "./Button";
  * @param {object} error          RTK Query error; message is derived from it when `message` is absent
  * @param {string} title          default "Something went wrong"
  * @param {string} message
+ * @param {import('react').ElementType} as  heading element (default h3; use h1 when the panel is the whole page)
  * @param {()=>void} onRetry      shows a Try again button (pass query.refetch)
  */
 export default function ErrorState({
@@ -17,6 +18,7 @@ export default function ErrorState({
   onRetry,
   retryLabel = "Try again",
   className,
+  as: Heading = "h3",
 }) {
   return (
     <div
@@ -29,7 +31,7 @@ export default function ErrorState({
       <span className="flex h-14 w-14 items-center justify-center rounded-full bg-coral/10 text-coral">
         <TriangleAlert className="h-6 w-6" aria-hidden="true" />
       </span>
-      <h3 className="font-display text-2xl text-ink">{title}</h3>
+      <Heading className="font-display text-2xl text-ink">{title}</Heading>
       <p className="max-w-md text-muted">{message ?? getErrorMessage(error)}</p>
       {onRetry && (
         <Button variant="dark" size="sm" onClick={onRetry} className="mt-2">

@@ -9,8 +9,10 @@ import CategoryChips from "./components/CategoryChips";
 import GalleryGrid from "./components/GalleryGrid";
 import GallerySkeleton from "./components/GallerySkeleton";
 import { categoriesOf } from "./components/galleryUtils";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export default function Gallery() {
+  useDocumentTitle("Gallery");
   const { data, isLoading, isError, error, refetch } = useGetGalleryQuery();
   const [category, setCategory] = useState("");
 

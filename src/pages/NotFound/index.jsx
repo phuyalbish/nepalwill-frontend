@@ -1,8 +1,10 @@
 import { Home } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Button from "@/components/ui/Button";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export default function NotFound() {
+  useDocumentTitle("Page not found");
   return (
     <div className="relative overflow-hidden">
       <div

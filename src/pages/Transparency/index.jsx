@@ -5,8 +5,10 @@ import FlowStepper from "./components/FlowStepper";
 import KpiBoard from "./components/KpiBoard";
 import NoCashBanner from "./components/NoCashBanner";
 import RecordsSection from "./components/RecordsSection";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export default function Transparency() {
+  useDocumentTitle("Transparency");
   return (
     <>
       <header className="relative overflow-hidden pb-10 pt-16 md:pb-14 md:pt-24">

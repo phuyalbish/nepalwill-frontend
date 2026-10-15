@@ -12,6 +12,7 @@ import BlogCard from "./BlogCard";
 import { BlogGridSkeleton, StoryRowsSkeleton } from "./ListSkeletons";
 import StoryRow from "./StoryRow";
 import { useStoryFilter } from "./useStoryFilter";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const TAB_PREFIX = "story-filter";
 
@@ -38,6 +39,7 @@ const COPY = {
 /** Shared list page. kind="story" renders zig-zag rows, kind="blog" a 3-column card grid. */
 export default function StoryListPage({ kind }) {
   const copy = COPY[kind];
+  useDocumentTitle(kind === "story" ? "Stories" : "Blog");
   const query = useGetStoriesQuery({ kind });
   const { filter, setFilter, tabs, visible } = useStoryFilter(query.data ?? []);
   const loading = query.isLoading;

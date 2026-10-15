@@ -3,6 +3,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { useGetProgramsQuery } from "@/api/nepalwillApi";
 import ContributeCards from "./components/ContributeCards";
 import ProgramsGrid from "./components/ProgramsGrid";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 /** Decorative drifting glows behind the header. Static under reduced motion. */
 function Glows() {
@@ -20,6 +21,7 @@ function Glows() {
 }
 
 export default function Programs() {
+  useDocumentTitle("Programs");
   const programsQuery = useGetProgramsQuery();
   return (
     <>

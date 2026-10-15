@@ -8,6 +8,7 @@ import DetailNotFound from "./components/DetailNotFound";
 import ProgramBody from "./components/ProgramBody";
 import ProgramSidebar from "./components/ProgramSidebar";
 import ContributeCta from "./components/ContributeCta";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 function DetailSkeleton() {
   return (
@@ -29,6 +30,7 @@ function DetailSkeleton() {
 export default function ProgramDetail() {
   const { slug } = useParams();
   const { data: program, isLoading, isError, error, refetch } = useGetProgramQuery(slug);
+  useDocumentTitle(program?.title ?? (error?.status === 404 ? "Program not found" : null));
 
   if (isLoading) return <DetailSkeleton />;
   if (isError && error?.status === 404)
@@ -43,7 +45,7 @@ export default function ProgramDetail() {
   if (isError)
     return (
       <div className="container-page py-20">
-        <ErrorState error={error} title="We could not load this program" onRetry={refetch} />
+        <ErrorState as="h1" error={error} title="We could not load this program" onRetry={refetch} />
       </div>
     );
 

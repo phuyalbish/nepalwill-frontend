@@ -7,6 +7,7 @@ export default function DetailNotFound({ title, description, backTo, backLabel }
   return (
     <div className="container-page py-20 md:py-28">
       <EmptyState
+        as="h1"
         icon={SearchX}
         title={title}
         description={description}
