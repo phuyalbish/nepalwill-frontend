@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useGetSiteQuery } from "@/api/nepalwillApi";
 import CountUp from "@/components/ui/CountUp";
 import Skeleton from "@/components/ui/Skeleton";
@@ -9,20 +10,23 @@ import DataState from "../components/DataState";
 const NOISE =
   "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")";
 
-/** Film grain that drifts in steps, plus a slow diagonal light streak. Transform only. */
+/** Film grain that drifts in steps, plus a slow diagonal light streak. Transform only, paused while offscreen. */
 function Atmosphere({ reduced }) {
+  const ref = useRef(null);
+  const inView = useInView(ref);
+  const run = !reduced && inView;
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
       <motion.div
         className="absolute -inset-1/2 opacity-[0.08] mix-blend-overlay"
         style={{ backgroundImage: NOISE }}
-        animate={reduced ? undefined : { x: [0, -48, 24, -16, 0], y: [0, 32, -40, 16, 0] }}
+        animate={run ? { x: [0, -48, 24, -16, 0], y: [0, 32, -40, 16, 0] } : undefined}
         transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
       />
       <span
         className={cn(
           "absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent",
-          !reduced && "animate-streak",
+          run && "animate-streak",
         )}
       />
     </div>

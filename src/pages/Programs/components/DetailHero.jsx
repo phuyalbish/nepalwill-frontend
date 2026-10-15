@@ -22,6 +22,7 @@ export default function DetailHero({ image, crumbs, children }) {
           src={image}
           alt=""
           priority
+          width={1600}
           className="h-full w-full !bg-ink-700"
           imgClassName="opacity-60"
         />

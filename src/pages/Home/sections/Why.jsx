@@ -48,8 +48,8 @@ export default function Why() {
             <Skeleton className="relative aspect-[4/3] w-full rounded-hero" />
           ) : (
             <ImageWithFallback
-              src={photo?.image_url ?? fallback}
-              alt={photo?.title ?? "Students working together at a NepalWill class"}
+              src={photo?.image_url || fallback}
+              alt={photo?.title || "Students working together at a NepalWill class"}
               className="relative aspect-[4/3] w-full rounded-hero shadow-lift"
             />
           )}

@@ -35,6 +35,7 @@ export default function StoryRow({ story, index }) {
         <ImageWithFallback
           src={story.image_url}
           alt={`${story.title}, by ${story.author}`}
+          sizes="(min-width: 768px) 50vw, 100vw"
           className="aspect-[4/3] w-full"
           imgClassName="transition-transform duration-700 group-hover/card:scale-105"
         />

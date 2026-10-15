@@ -25,6 +25,7 @@ export default function EventCard({ event, selected, ...rest }) {
         <ImageWithFallback
           src={event.image_url}
           alt={`${event.title} event`}
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="aspect-[4/3] w-full"
           imgClassName="transition-transform duration-700 group-hover/card:scale-105"
         />

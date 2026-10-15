@@ -14,6 +14,8 @@ export default function ArticleHero({ story }) {
           src={story.image_url}
           alt={`Cover image for ${story.title}`}
           priority
+          width={1600}
+          sizes="(min-width: 1024px) 1024px, 100vw"
           className="h-full w-full"
         />
       </div>

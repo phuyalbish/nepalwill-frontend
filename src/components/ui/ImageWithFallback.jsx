@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ImageOff } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { unsplashSrcSet, unsplashWidth } from "@/lib/images";
 
 /**
  * Lazy image that fades in on load and shows a neutral gradient if it fails or has no src.
@@ -12,6 +13,10 @@ import { cn } from "@/lib/cn";
  * @param {string} imgClassName  extra classes for the <img> (e.g. hover zoom "transition-transform group-hover:scale-105")
  * @param {boolean} priority     eager load for above-the-fold images
  * @param {string} layoutId      framer shared-layout id (used by Lightbox zoom)
+ * @param {number} width         Unsplash only: widest rendition in px (cards 800 by default, gallery tiles 900, heroes 1600);
+ *                               src is rewritten to this w= and a 400..width srcSet is emitted
+ * @param {string} sizes         Unsplash only: the sizes attribute that goes with the srcSet (default "100vw")
+ * When alt is "" the image is decorative and so is its error placeholder (aria-hidden).
  */
 export default function ImageWithFallback({
   src,
@@ -21,6 +26,8 @@ export default function ImageWithFallback({
   priority = false,
   layoutId,
   fill = false,
+  width = 800,
+  sizes = "100vw",
   ...rest
 }) {
   const [failedSrc, setFailedSrc] = useState(null);
@@ -36,8 +43,7 @@ export default function ImageWithFallback({
     >
       {failed ? (
         <div
-          role="img"
-          aria-label={alt || "Image unavailable"}
+          {...(alt ? { role: "img", "aria-label": alt } : { "aria-hidden": "true" })}
           className="flex h-full w-full items-center justify-center text-muted-300"
         >
           <ImageOff className="h-8 w-8" aria-hidden="true" />
@@ -46,7 +52,9 @@ export default function ImageWithFallback({
         <motion.img
           key={src}
           layoutId={layoutId}
-          src={src}
+          src={unsplashWidth(src, width)}
+          srcSet={unsplashSrcSet(src, width)}
+          sizes={unsplashSrcSet(src, width) ? sizes : undefined}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"

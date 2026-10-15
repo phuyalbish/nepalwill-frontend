@@ -14,6 +14,7 @@ export default function ProgramCard({ program }) {
         <ImageWithFallback
           src={program.image_url}
           alt=""
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="h-44 w-full"
           imgClassName="transition-transform duration-700 group-hover/card:scale-105"
         />

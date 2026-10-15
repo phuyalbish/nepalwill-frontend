@@ -32,6 +32,8 @@ const GalleryTile = forwardRef(function GalleryTile(
         <ImageWithFallback
           src={item.image_url}
           alt={item.title}
+          width={900}
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           layoutId={lightboxLayoutId(prefix, item.id ?? index)}
           className="h-full w-full"
           imgClassName="transition-transform duration-700 ease-out group-hover:scale-[1.06]"

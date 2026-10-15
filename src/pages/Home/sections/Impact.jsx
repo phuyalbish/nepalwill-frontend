@@ -18,7 +18,7 @@ export default function Impact() {
   const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.25, 1.15, 1.05]);
   const gallery = data?.gallery ?? [];
-  const src = gallery[4]?.image_url ?? gallery[0]?.image_url ?? fallback;
+  const src = gallery[4]?.image_url || gallery[0]?.image_url || fallback;
 
   return (
     <section
@@ -31,7 +31,7 @@ export default function Impact() {
         className={reduced ? "absolute inset-0" : "absolute inset-x-0 -inset-y-[16%]"}
         style={reduced ? undefined : { y, scale, willChange: "transform" }}
       >
-        <ImageWithFallback src={src} alt="" className="h-full w-full" />
+        <ImageWithFallback src={src} alt="" width={1600} className="h-full w-full" />
       </motion.div>
       <div
         aria-hidden="true"
