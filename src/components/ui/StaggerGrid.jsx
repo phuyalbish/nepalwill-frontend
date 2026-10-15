@@ -41,3 +41,6 @@ export function StaggerItem({ className, children, ...rest }) {
     </motion.div>
   );
 }
+
+// Named alias so both `import StaggerGrid` and `import { StaggerGrid }` work.
+export { StaggerGrid };
