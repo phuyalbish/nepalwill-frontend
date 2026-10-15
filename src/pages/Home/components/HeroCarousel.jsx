@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { Pause, Play } from "lucide-react";
 import { cn } from "@/lib/cn";
 import ImageWithFallback from "@/components/ui/ImageWithFallback";
 import CountUp from "@/components/ui/CountUp";
+import { useGetSiteQuery } from "@/api/nepalwillApi";
+import { findStat } from "@/lib/stats";
 
 const INTERVAL_MS = 5000;
 
@@ -36,14 +39,20 @@ function Slide({ slide, active, priority, reduced }) {
 }
 
 /**
- * Auto-advancing hero carousel (5s). Pauses on hover and focus, never auto-advances under
- * reduced motion. Pill dots are buttons; the active one is a wide mint pill.
+ * Auto-advancing hero carousel (5s). Pauses on mouse hover and on focus, has an explicit pause/play
+ * toggle, and never auto-advances under reduced motion. Touch taps do not pause it (pointerType is
+ * checked). Pill dots are buttons; the active one is a wide mint pill.
  * @param {{src:string, alt:string}[]} slides
  */
 export default function HeroCarousel({ slides }) {
   const reduced = useReducedMotion();
+  const { data: site } = useGetSiteQuery();
+  const students = findStat(site?.stats, "students-impacted");
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [stopped, setStopped] = useState(false);
+  const paused = hovered || focused || stopped;
   const count = slides.length;
   const current = count ? active % count : 0;
 
@@ -56,10 +65,10 @@ export default function HeroCarousel({ slides }) {
   return (
     <div
       className="relative"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
+      onPointerEnter={(e) => e.pointerType === "mouse" && setHovered(true)}
+      onPointerLeave={(e) => e.pointerType === "mouse" && setHovered(false)}
+      onFocus={(e) => setFocused(!e.target.closest("[data-carousel-toggle]"))}
+      onBlur={() => setFocused(false)}
     >
       <div
         role="group"
@@ -89,12 +98,12 @@ export default function HeroCarousel({ slides }) {
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       >
         <p className="font-display text-4xl leading-none text-success-strong">
-          <CountUp to={500} suffix="+" />
+          <CountUp to={students ? students.value : 500} suffix={students ? students.suffix : "+"} />
         </p>
         <p className="mt-1 text-sm tracking-wide text-ink-700">Students Impacted</p>
       </motion.div>
 
-      <div className="mt-6 flex items-center justify-center gap-2.5">
+      <div className="relative mt-6 flex items-center justify-center gap-2.5">
         {slides.map((slide, i) => (
           <motion.button
             key={slide.src}
@@ -111,6 +120,22 @@ export default function HeroCarousel({ slides }) {
             )}
           />
         ))}
+        {count > 1 && !reduced && (
+          <button
+            type="button"
+            data-carousel-toggle=""
+            aria-pressed={stopped}
+            aria-label="Pause slideshow"
+            onClick={() => setStopped((v) => !v)}
+            className="absolute right-0 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-ink/10 bg-white text-ink transition-colors hover:bg-sage-50"
+          >
+            {stopped ? (
+              <Play className="h-4 w-4" aria-hidden="true" />
+            ) : (
+              <Pause className="h-4 w-4" aria-hidden="true" />
+            )}
+          </button>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
 import { ClipboardList, Gift, GraduationCap, LineChart, ShieldCheck, Truck } from "lucide-react";
 
+/** Two of these figures come from /api/site/ (statKey); the constants are the fallback while loading or on error. */
 export const KPIS = [
-  { id: "items", to: 500, suffix: "+", label: "Total In-Kind Items", tone: "text-success" },
-  { id: "schools", to: 15, label: "Schools Reached", tone: "text-purple" },
+  { id: "items", statKey: "in_kind_items", to: 500, suffix: "+", label: "Total In-Kind Items", tone: "text-success" },
+  { id: "schools", statKey: "schools_reached", to: 14, label: "Schools Reached", tone: "text-purple" },
   { id: "money", to: 0, prefix: "NPR ", label: "Monetary Received", tone: "text-ink-700" },
   { id: "util", to: 100, suffix: "%", label: "Utilization Rate", tone: "text-success" },
 ];

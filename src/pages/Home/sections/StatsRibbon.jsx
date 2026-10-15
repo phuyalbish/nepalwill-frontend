@@ -3,6 +3,7 @@ import { useGetSiteQuery } from "@/api/nepalwillApi";
 import CountUp from "@/components/ui/CountUp";
 import Skeleton from "@/components/ui/Skeleton";
 import { cn } from "@/lib/cn";
+import { RIBBON_KEYS } from "@/lib/stats";
 import DataState from "../components/DataState";
 
 const NOISE =
@@ -45,7 +46,9 @@ function StatsSkeleton() {
 export default function StatsRibbon() {
   const query = useGetSiteQuery();
   const reduced = useReducedMotion();
-  const stats = [...(query.data?.stats ?? [])].sort((a, b) => a.order - b.order).slice(0, 4);
+  const stats = (query.data?.stats ?? [])
+    .filter((stat) => RIBBON_KEYS.includes(stat.key))
+    .sort((a, b) => a.order - b.order);
 
   return (
     <section
@@ -61,10 +64,7 @@ export default function StatsRibbon() {
                 <div key={stat.id ?? stat.key} className="flex flex-col-reverse items-center gap-2">
                   <dt className="text-sm tracking-wide text-white/60">{stat.label}</dt>
                   <dd className="font-display text-5xl leading-none text-mint md:text-6xl">
-                    <CountUp
-                      to={stat.value}
-                      suffix={stat.suffix || (Number(stat.value) >= 10 ? "+" : "")}
-                    />
+                    <CountUp to={stat.value} suffix={stat.suffix} />
                   </dd>
                 </div>
               ))}
