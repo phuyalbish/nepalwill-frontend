@@ -12,7 +12,8 @@ const toKey = (year, month, day) => `${year}-${pad(month + 1)}-${pad(day)}`;
  * Month calendar card. Dates that have an event are mint buttons.
  * @param {{slug:string,title:string,date:string}[]} events
  * @param {string} selectedSlug  event whose date gets the purple ring
- * @param {(event:object)=>void} onSelect  called with the first event on the clicked date
+ * @param {(event:object)=>void} onSelect  called with the first event on the clicked date; clicking a date whose event is
+ *   already selected cycles to the next event on that date (several events can share a day)
  */
 export default function Calendar({ events, selectedSlug, onSelect }) {
   const today = useMemo(() => {
@@ -87,6 +88,8 @@ export default function Calendar({ events, selectedSlug, onSelect }) {
             const dayEvents = byDate.get(key);
             const isToday =
               today.year === view.year && today.month === view.month && today.day === day;
+            const pickedIndex = dayEvents ? dayEvents.findIndex((e) => e.slug === selectedSlug) : -1;
+            const nextEvent = dayEvents ? dayEvents[(pickedIndex + 1) % dayEvents.length] : null;
             const base = cn(
               "mx-auto flex h-9 w-9 items-center justify-center rounded-full text-[13px] transition-colors",
               isToday && "ring-2 ring-ink/40 ring-offset-1",
@@ -102,8 +105,10 @@ export default function Calendar({ events, selectedSlug, onSelect }) {
               <button
                 key={key}
                 type="button"
-                onClick={() => onSelect(dayEvents[0])}
-                aria-label={`${MONTH_NAMES[view.month]} ${day}: ${dayEvents.map((e) => e.title).join(", ")}`}
+                onClick={() => onSelect(nextEvent)}
+                aria-label={`${MONTH_NAMES[view.month]} ${day}: ${dayEvents.map((e) => e.title).join(", ")}${
+                  dayEvents.length > 1 ? `. ${dayEvents.length} events, press again for the next one` : ""
+                }`}
                 aria-pressed={key === selectedDate}
                 className={cn(
                   base,
@@ -120,7 +125,7 @@ export default function Calendar({ events, selectedSlug, onSelect }) {
 
       <p className="flex items-start gap-2.5 rounded-card border border-mint-strong/30 bg-mint-50 px-4 py-3 text-sm leading-5 text-success-strong">
         <CalendarDays className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-        Click a highlighted date to jump to that event
+        Click a highlighted date to jump to that event. Dates with several events cycle through them.
       </p>
     </div>
   );

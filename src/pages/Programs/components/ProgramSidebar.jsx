@@ -20,8 +20,9 @@ function Fact({ icon: Icon, label, children }) {
   );
 }
 
+// Same arg as the home page ({ upcoming: 1 }) so RTK Query shares one cache entry.
 function RelatedEvents({ slug }) {
-  const { data } = useGetEventsQuery({ upcoming: true });
+  const { data } = useGetEventsQuery({ upcoming: 1 });
   const events = (data || []).filter((e) => e.program_slug === slug).slice(0, 3);
   return (
     <div className="mt-6 border-t border-line pt-5">

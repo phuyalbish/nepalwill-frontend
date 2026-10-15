@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, SearchX } from "lucide-react";
 import Button from "@/components/ui/Button";
 import EmptyState from "@/components/ui/EmptyState";
@@ -40,6 +40,11 @@ export default function ArticlePage({ kind }) {
   const { data: story, error, isLoading, refetch } = useGetStoryQuery(slug);
   const notFound = error?.status === 404;
   useDocumentTitle(story?.title ?? (notFound ? "Not found" : null));
+
+  // /stories/<blog-slug> and /blog/<story-slug> share one endpoint: send the reader to the matching route.
+  if (story && story.kind && story.kind !== kind) {
+    return <Navigate replace to={`${LIST[story.kind]?.to ?? copy.to}/${story.slug}`} />;
+  }
 
   return (
     <div className="container-page max-w-5xl pb-20 pt-8 md:pb-28 md:pt-12">
