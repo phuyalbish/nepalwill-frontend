@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   AnimatePresence,
@@ -126,10 +127,24 @@ function Drawer({ onClose }) {
  */
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  // The drawer is open only for the location it was opened on, so any navigation closes it.
+  const location = useLocation();
+  const [openAt, setOpenAt] = useState(null);
+  const open = openAt === location.key;
+  const closeDrawer = () => setOpenAt(null);
   const reduced = useReducedMotion();
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 8));
+
+  // Close the drawer when the viewport grows to the desktop layout so scroll lock and focus trap never linger.
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = (event) => {
+      if (event.matches) setOpenAt(null);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   return (
     <header
@@ -180,7 +195,7 @@ export default function Navbar() {
           </Button>
           <button
             type="button"
-            onClick={() => setOpen(true)}
+            onClick={() => setOpenAt(location.key)}
             aria-label="Open menu"
             aria-expanded={open}
             className="flex h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-ink/5 lg:hidden"
@@ -190,7 +205,11 @@ export default function Navbar() {
         </div>
       </div>
 
-      <AnimatePresence>{open && <Drawer onClose={() => setOpen(false)} />}</AnimatePresence>
+      {/* Portalled to body: a backdrop-filter header would otherwise be the containing block of the fixed drawer. */}
+      {createPortal(
+        <AnimatePresence>{open && <Drawer onClose={closeDrawer} />}</AnimatePresence>,
+        document.body,
+      )}
     </header>
   );
 }
