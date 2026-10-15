@@ -76,7 +76,7 @@ export default function Calendar({ events, selectedSlug, onSelect }) {
             <abbr
               key={name}
               title={name}
-              className="pb-2 text-[11px] font-semibold uppercase text-muted-300 no-underline"
+              className="pb-2 text-[11px] font-semibold uppercase text-muted no-underline"
             >
               {name[0]}
             </abbr>

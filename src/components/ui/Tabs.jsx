@@ -114,7 +114,7 @@ export default function Tabs({
               <span className="relative z-10 inline-flex items-center gap-2">
                 {tab.label}
                 {tab.count != null && (
-                  <span className={cn("text-xs", active ? "text-white/60" : "text-muted-300")}>
+                  <span className={cn("text-xs", active ? "text-white/60" : "text-muted")}>
                     {tab.count}
                   </span>
                 )}

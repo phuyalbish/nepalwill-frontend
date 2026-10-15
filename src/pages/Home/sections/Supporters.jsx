@@ -7,7 +7,7 @@ import StaggerGrid, { StaggerItem } from "@/components/ui/StaggerGrid";
 import DataState from "../components/DataState";
 
 const WORDMARK =
-  "group/mark flex min-h-[84px] items-center justify-center gap-2 rounded-card border border-transparent px-7 py-4 text-center font-display text-2xl leading-tight text-muted-300 grayscale transition-all duration-300 md:text-[28px]";
+  "group/mark flex min-h-[84px] items-center justify-center gap-2 rounded-card border border-transparent px-7 py-4 text-center font-display text-2xl leading-tight text-muted grayscale transition-all duration-300 md:text-[28px]";
 const WORDMARK_HOVER = "hover:border-line hover:bg-white hover:text-ink hover:shadow-soft hover:grayscale-0";
 
 function Wordmark({ item }) {

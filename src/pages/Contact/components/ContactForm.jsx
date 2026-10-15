@@ -60,7 +60,7 @@ export default function ContactForm() {
               <Textarea label={MESSAGE_LABEL[f.type]} required name="message" rows={5} value={f.shared.message} onChange={f.setSharedField("message")} error={f.errors.message} />
               <div aria-live="polite" role="status">
                 {f.formError && (
-                  <p className="flex items-start gap-2 rounded-xl bg-coral/10 p-3 text-sm text-coral">
+                  <p className="flex items-start gap-2 rounded-xl bg-coral/10 p-3 text-sm text-coral-700">
                     <CircleAlert className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
                     {f.formError}
                   </p>

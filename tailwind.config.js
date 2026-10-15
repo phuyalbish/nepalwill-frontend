@@ -11,16 +11,19 @@ export default {
       colors: {
         page: "#F6FDFA",
         ink: { DEFAULT: "#0A1A0F", 700: "#3D5A45" },
-        muted: { DEFAULT: "#6B8A73", 300: "#9BB3A2" },
+        // muted: 5.7:1 on page, 5.9:1 on white, 5.1:1 on sage-50, 5.4:1 on mint-50. muted-300 is decorative only (2.2:1).
+        muted: { DEFAULT: "#4F6B57", 300: "#9BB3A2" },
         mint: { DEFAULT: "#99F2C8", strong: "#3CE293", 50: "#DCFCE9" },
         sage: { 50: "#E7F2ED" },
         purple: {
           DEFAULT: "#735BDA",
           50: "#F3F0FD",
           600: "#5F46C4",
+          700: "#5B43C2",
         },
         success: { DEFAULT: "#16A34A", strong: "#15803D" },
-        coral: "#F2545B",
+        // coral-700 is the text tone (5.2:1 on page, 4.7:1 on coral/10); plain coral is for fills and borders only.
+        coral: { DEFAULT: "#F2545B", 700: "#C2363D" },
         line: "#E5E7EB",
       },
       fontFamily: {

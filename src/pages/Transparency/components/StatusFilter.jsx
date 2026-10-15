@@ -24,7 +24,7 @@ export default function StatusFilter({ value, onChange, counts }) {
             )}
           >
             {f.label}
-            <span className={cn("ml-1.5 text-xs", active ? "text-white/60" : "text-muted-300")}>
+            <span className={cn("ml-1.5 text-xs", active ? "text-white/60" : "text-muted")}>
               {counts[f.id]}
             </span>
           </button>

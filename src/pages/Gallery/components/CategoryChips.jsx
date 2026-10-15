@@ -23,7 +23,7 @@ export default function CategoryChips({ options, value, onChange, counts }) {
             )}
           >
             {name}
-            <span className={cn("text-xs", active ? "text-white/60" : "text-muted-300")}>{count}</span>
+            <span className={cn("text-xs", active ? "text-white/60" : "text-muted")}>{count}</span>
           </button>
         );
       })}

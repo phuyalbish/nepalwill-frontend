@@ -56,7 +56,7 @@ export default function RegistrationCard({ event }) {
           <Textarea label="Message (optional)" name="message" rows={3} value={r.values.message} onChange={r.setField("message")} error={r.errors.message} />
           <div aria-live="polite" role="status">
             {r.formError && (
-              <p className="flex items-start gap-2 rounded-xl bg-coral/10 p-3 text-sm text-coral">
+              <p className="flex items-start gap-2 rounded-xl bg-coral/10 p-3 text-sm text-coral-700">
                 <CircleAlert className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
                 {r.formError}
               </p>

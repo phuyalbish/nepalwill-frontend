@@ -24,7 +24,7 @@ export default function Field({ id, label, error, hint, required, className, chi
       )}
       {children}
       {error ? (
-        <p id={`${id}-msg`} role="alert" className="text-sm text-coral">
+        <p id={`${id}-msg`} role="alert" className="text-sm text-coral-700">
           {error}
         </p>
       ) : hint ? (

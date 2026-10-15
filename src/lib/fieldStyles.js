@@ -3,7 +3,7 @@ import { cn } from "@/lib/cn";
 /** Shared control styles: 12px radius, mint focus ring, coral on error. */
 export const controlClass = (error) =>
   cn(
-    "w-full rounded-field border bg-white px-4 py-3 text-[15px] text-ink placeholder:text-muted-300",
+    "w-full rounded-field border bg-white px-4 py-3 text-[15px] text-ink placeholder:text-muted",
     "outline-none transition-[border-color,box-shadow] duration-200",
     "focus:ring-4",
     error

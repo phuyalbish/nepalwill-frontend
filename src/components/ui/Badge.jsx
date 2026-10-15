@@ -1,12 +1,12 @@
 import { cn } from "@/lib/cn";
 
 const VARIANTS = {
-  purple: "bg-purple/10 text-purple",
+  purple: "bg-purple/10 text-purple-700",
   mint: "bg-mint text-ink",
   ink: "bg-ink text-white",
   success: "bg-success/10 text-success-strong",
   warning: "bg-amber-100 text-amber-800",
-  coral: "bg-coral/10 text-coral",
+  coral: "bg-coral/10 text-coral-700",
 };
 
 /**

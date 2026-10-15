@@ -49,7 +49,7 @@ export default function ChoicePills({ legend, name, options, multiple = false, v
         ))}
       </div>
       {error && (
-        <p id={`${id}-msg`} role="alert" className="mt-1.5 text-sm text-coral">
+        <p id={`${id}-msg`} role="alert" className="mt-1.5 text-sm text-coral-700">
           {error}
         </p>
       )}
